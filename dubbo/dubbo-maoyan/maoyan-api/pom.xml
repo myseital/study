@@ -4,16 +4,9 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mao</groupId>
-        <artifactId>study</artifactId>
+        <artifactId>dubbo-maoyan</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>core</artifactId>
-    <name>core</name>
-
-    <dependencies>
-        <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
-        </dependency>
-    </dependencies>
+    <artifactId>maoyan-api</artifactId>
+    <name>maoyan-api</name>
 </project>

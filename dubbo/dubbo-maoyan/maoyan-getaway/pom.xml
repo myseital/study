@@ -4,16 +4,22 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mao</groupId>
-        <artifactId>study</artifactId>
+        <artifactId>dubbo-maoyan</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>core</artifactId>
-    <name>core</name>
+    <artifactId>maoyan-getaway</artifactId>
+    <name>maoyan-getaway</name>
 
     <dependencies>
         <dependency>
-            <groupId>org.springframework</groupId>
-            <artifactId>spring-jdbc</artifactId>
+            <groupId>com.mao</groupId>
+            <artifactId>maoyan-api</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
+        </dependency>
+        <dependency>
+            <groupId>com.mao</groupId>
+            <artifactId>maoyan-core</artifactId>
+            <version>0.0.1-SNAPSHOT</version>
         </dependency>
     </dependencies>
 </project>

@@ -1,0 +1,6 @@
+# AutoConfiguration
+org.springframework.boot.autoconfigure.EnableAutoConfiguration=\
+com.mao.maoyan.core.base.controller.GlobalController,\
+com.mao.maoyan.core.config.DefaultFastjsonConfig,\
+com.mao.maoyan.core.config.DefaultProperties,\
+com.mao.maoyan.core.config.DefaultWebConfig
