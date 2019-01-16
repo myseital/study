@@ -76,7 +76,7 @@ public class UserController {
         String userId = CurrentUser.getCurrentUser();
         if(userId != null && userId.trim().length()>0){
             // 将用户ID传入后端进行查询
-            int uuid = Integer.parseInt(userId);
+            Integer uuid = Integer.parseInt(userId);
             UserInfoModel userInfo = userApi.getUserInfo(uuid);
             if(userInfo!=null){
                 return ResponseVO.success(userInfo);

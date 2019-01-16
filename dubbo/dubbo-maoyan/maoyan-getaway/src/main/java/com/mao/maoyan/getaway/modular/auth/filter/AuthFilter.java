@@ -7,8 +7,6 @@ import com.mao.maoyan.getaway.common.exception.BizExceptionEnum;
 import com.mao.maoyan.getaway.config.properties.JwtProperties;
 import com.mao.maoyan.getaway.modular.auth.util.JwtTokenUtil;
 import io.jsonwebtoken.JwtException;
-import org.apache.commons.logging.Log;
-import org.apache.commons.logging.LogFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -24,8 +22,6 @@ import java.io.IOException;
  * @author maojiawei
  */
 public class AuthFilter extends OncePerRequestFilter {
-
-    private final Log logger = LogFactory.getLog(this.getClass());
 
     @Autowired
     private JwtTokenUtil jwtTokenUtil;
@@ -55,7 +51,7 @@ public class AuthFilter extends OncePerRequestFilter {
         String authToken = null;
         if (requestHeader != null && requestHeader.startsWith("Bearer ")) {
             authToken = requestHeader.substring(7);
-            // 通过Token获取userID，并且将之存入Threadlocal，以便后续业务调用
+            // 通过Token获取userID，并且将之存入ThreadLocal，以便后续业务调用
             String userId = jwtTokenUtil.getUsernameFromToken(authToken);
             if(userId == null){
                 return;

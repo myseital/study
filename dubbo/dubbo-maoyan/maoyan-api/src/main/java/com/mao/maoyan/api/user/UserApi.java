@@ -5,18 +5,45 @@ import com.mao.maoyan.api.user.vo.UserInfoModel;
 import com.mao.maoyan.api.user.vo.UserModel;
 
 /**
+ * 用户服务API
+ *
  * @author maojiawei
  */
 public interface UserApi {
 
-    int login(String username, String password);
+    /**
+     * 用户登录
+     * @param username
+     * @param password
+     * @return
+     */
+    Integer login(String username, String password);
 
-    boolean register(UserModel userModel);
+    /**
+     * 用户注册
+     * @param userModel
+     * @return
+     */
+    Boolean register(UserModel userModel);
 
-    boolean checkUsername(String username);
+    /**
+     * 验证用户名称
+     * @param username
+     * @return
+     */
+    Boolean checkUsername(String username);
 
-    UserInfoModel getUserInfo(int uuid);
+    /**
+     * 查询用户信息
+     * @param uuid
+     * @return
+     */
+    UserInfoModel getUserInfo(Integer uuid);
 
+    /**
+     * 更新用户信息
+     * @param userInfoModel
+     * @return
+     */
     UserInfoModel updateUserInfo(UserInfoModel userInfoModel);
-
 }

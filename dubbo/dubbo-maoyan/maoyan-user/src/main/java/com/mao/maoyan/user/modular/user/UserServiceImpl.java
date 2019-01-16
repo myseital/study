@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserApi {
     private MoocUserTMapper moocUserTMapper;
 
     @Override
-    public boolean register(UserModel userModel) {
+    public Boolean register(UserModel userModel) {
         // 将注册信息实体转换为数据实体[mooc_user_t]
         MoocUserT moocUserT = new MoocUserT();
         moocUserT.setUserName(userModel.getUsername());
@@ -45,7 +45,7 @@ public class UserServiceImpl implements UserApi {
 
 
     @Override
-    public int login(String username, String password) {
+    public Integer login(String username, String password) {
         // 根据登陆账号获取数据库信息
         MoocUserT moocUserT = new MoocUserT();
         moocUserT.setUserName(username);
@@ -63,7 +63,7 @@ public class UserServiceImpl implements UserApi {
     }
 
     @Override
-    public boolean checkUsername(String username) {
+    public Boolean checkUsername(String username) {
         EntityWrapper<MoocUserT> entityWrapper = new EntityWrapper<>();
         entityWrapper.eq("user_name", username);
         Integer result = moocUserTMapper.selectCount(entityWrapper);
@@ -95,7 +95,7 @@ public class UserServiceImpl implements UserApi {
     }
 
     @Override
-    public UserInfoModel getUserInfo(int uuid) {
+    public UserInfoModel getUserInfo(Integer uuid) {
         // 根据主键查询用户信息 [MoocUserT]
         MoocUserT moocUserT = moocUserTMapper.selectById(uuid);
         // 将MoocUserT转换UserInfoModel

@@ -24,5 +24,4 @@ public class CurrentUser {
 //    public static UserInfoModel getCurrentUser(){
 //        return threadLocal.get();
 //    }
-
 }
