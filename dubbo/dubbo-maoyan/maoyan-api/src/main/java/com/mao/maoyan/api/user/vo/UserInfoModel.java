@@ -14,8 +14,8 @@ public class UserInfoModel implements Serializable{
     private static final long serialVersionUID = -8575925980616865640L;
 
     private Integer uuid;
-    private String username;
-    private String nickname;
+    private String userName;
+    private String nickName;
     private String email;
     private String phone;
     private Integer sex;

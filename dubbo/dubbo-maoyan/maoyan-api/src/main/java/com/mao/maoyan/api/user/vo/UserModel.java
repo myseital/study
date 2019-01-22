@@ -12,7 +12,7 @@ public class UserModel implements Serializable {
 
     private static final long serialVersionUID = 7257339994068493145L;
 
-    private String username;
+    private String userName;
     private String password;
     private String email;
     private String phone;

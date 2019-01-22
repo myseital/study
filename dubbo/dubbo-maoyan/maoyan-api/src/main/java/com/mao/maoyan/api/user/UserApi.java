@@ -1,6 +1,5 @@
 package com.mao.maoyan.api.user;
 
-
 import com.mao.maoyan.api.user.vo.UserInfoModel;
 import com.mao.maoyan.api.user.vo.UserModel;
 
@@ -28,10 +27,10 @@ public interface UserApi {
 
     /**
      * 验证用户名称
-     * @param username
+     * @param userName
      * @return
      */
-    Boolean checkUsername(String username);
+    Boolean checkUsername(String userName);
 
     /**
      * 查询用户信息

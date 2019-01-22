@@ -3,6 +3,7 @@ package com.mao.maoyan.getaway.modular.example;
 import com.mao.maoyan.getaway.common.CurrentUser;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 /**
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @RequestMapping("/hello")
 public class ExampleController {
 
-    @RequestMapping("")
+    @GetMapping("")
     public ResponseEntity hello() {
         System.out.println(CurrentUser.getCurrentUser());
 

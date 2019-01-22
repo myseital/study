@@ -2,7 +2,7 @@ package com.mao.maoyan.getaway.common.aop;
 
 import com.mao.maoyan.core.aop.BaseControllerExceptionHandler;
 import com.mao.maoyan.core.base.tips.ErrorTip;
-import com.mao.maoyan.getaway.common.exception.BizExceptionEnum;
+import com.mao.maoyan.core.exception.BizExceptionEnum;
 import io.jsonwebtoken.JwtException;
 import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.ControllerAdvice;

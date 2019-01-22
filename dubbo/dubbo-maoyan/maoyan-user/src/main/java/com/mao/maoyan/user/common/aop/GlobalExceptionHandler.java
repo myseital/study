@@ -2,7 +2,7 @@ package com.mao.maoyan.user.common.aop;
 
 import com.mao.maoyan.core.aop.BaseControllerExceptionHandler;
 import com.mao.maoyan.core.base.tips.ErrorTip;
-import com.mao.maoyan.user.common.exception.BizExceptionEnum;
+import com.mao.maoyan.core.exception.BizExceptionEnum;
 import io.jsonwebtoken.JwtException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.http.HttpStatus;
