@@ -1,9 +1,9 @@
 package com.mao.maoyan.film.config;
 
-import com.stylefeng.guns.rest.config.properties.RestProperties;
-import com.stylefeng.guns.rest.modular.auth.filter.AuthFilter;
-import com.stylefeng.guns.rest.modular.auth.security.DataSecurityAction;
-import com.stylefeng.guns.rest.modular.auth.security.impl.Base64SecurityAction;
+import com.mao.maoyan.film.config.properties.RestProperties;
+import com.mao.maoyan.film.modular.auth.filter.AuthFilter;
+import com.mao.maoyan.film.modular.auth.security.DataSecurityAction;
+import com.mao.maoyan.film.modular.auth.security.impl.Base64SecurityAction;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

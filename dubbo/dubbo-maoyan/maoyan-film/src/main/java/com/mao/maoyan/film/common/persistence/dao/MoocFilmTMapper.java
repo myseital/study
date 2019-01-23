@@ -1,8 +1,8 @@
 package com.mao.maoyan.film.common.persistence.dao;
 
-import com.stylefeng.guns.api.film.vo.FilmDetailVO;
-import com.stylefeng.guns.rest.common.persistence.model.MoocFilmT;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.mao.maoyan.api.film.vo.FilmDetailVO;
+import com.mao.maoyan.film.common.persistence.model.MoocFilmT;
 import org.apache.ibatis.annotations.Param;
 
 /**

@@ -1,7 +1,7 @@
 package com.mao.maoyan.film.modular.auth.util;
 
-import com.stylefeng.guns.core.util.ToolUtil;
-import com.stylefeng.guns.rest.config.properties.JwtProperties;
+import com.mao.maoyan.core.config.properties.JwtProperties;
+import com.mao.maoyan.core.util.ToolUtil;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

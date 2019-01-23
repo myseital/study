@@ -1,6 +1,7 @@
 package com.mao.maoyan.film.modular.auth.controller.dto;
 
-import com.stylefeng.guns.rest.modular.auth.validator.dto.Credence;
+import com.mao.maoyan.film.modular.auth.validator.dto.Credence;
+import lombok.Data;
 
 /**
  * 认证的请求dto
@@ -8,26 +9,11 @@ import com.stylefeng.guns.rest.modular.auth.validator.dto.Credence;
  * @author fengshuonan
  * @Date 2017/8/24 14:00
  */
+@Data
 public class AuthRequest implements Credence {
 
     private String userName;
     private String password;
-
-    public void setUserName(String userName) {
-        this.userName = userName;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getUserName() {
-        return userName;
-    }
 
     @Override
     public String getCredenceName() {

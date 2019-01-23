@@ -1,9 +1,9 @@
 package com.mao.maoyan.user.modular.auth.filter;
 
 import com.mao.maoyan.core.base.tips.ErrorTip;
+import com.mao.maoyan.core.config.properties.JwtProperties;
+import com.mao.maoyan.core.exception.BizExceptionEnum;
 import com.mao.maoyan.core.util.RenderUtil;
-import com.mao.maoyan.user.common.exception.BizExceptionEnum;
-import com.mao.maoyan.user.config.properties.JwtProperties;
 import com.mao.maoyan.user.modular.auth.util.JwtTokenUtil;
 import io.jsonwebtoken.JwtException;
 import org.springframework.beans.factory.annotation.Autowired;

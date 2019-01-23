@@ -1,7 +1,7 @@
 package com.mao.maoyan.user.modular.auth.util;
 
+import com.mao.maoyan.core.config.properties.JwtProperties;
 import com.mao.maoyan.core.util.ToolUtil;
-import com.mao.maoyan.user.config.properties.JwtProperties;
 import io.jsonwebtoken.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;

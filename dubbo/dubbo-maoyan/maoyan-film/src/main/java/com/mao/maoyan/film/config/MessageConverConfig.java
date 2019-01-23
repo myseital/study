@@ -1,8 +1,8 @@
 package com.mao.maoyan.film.config;
 
-import com.stylefeng.guns.core.config.DefaultFastjsonConfig;
-import com.stylefeng.guns.rest.config.properties.RestProperties;
-import com.stylefeng.guns.rest.modular.auth.converter.WithSignMessageConverter;
+import com.mao.maoyan.core.config.DefaultFastjsonConfig;
+import com.mao.maoyan.film.config.properties.RestProperties;
+import com.mao.maoyan.film.modular.auth.converter.WithSignMessageConverter;
 import org.springframework.boot.autoconfigure.condition.ConditionalOnProperty;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;

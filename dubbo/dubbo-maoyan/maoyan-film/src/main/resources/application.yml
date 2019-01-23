@@ -35,3 +35,13 @@ spring:
     url: jdbc:mysql://120.55.63.0:3306/maoyan?autoReconnect=true&useUnicode=true&characterEncoding=utf8&serverTimezone=GMT%2B8
     username: root
     password: Mao213344.
+
+dubbo:
+  application:
+    name: film
+    logger: slf4j
+  protocol:
+    name: dubbo
+    port: 20882
+  registry:
+    address: zookeeper://localhost:2181

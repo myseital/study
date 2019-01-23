@@ -1,20 +1,22 @@
 package com.mao.maoyan.film.modular.film.serivce;
 
 import com.alibaba.dubbo.config.annotation.Service;
-import com.baomidou.mybatisplus.mapper.EntityWrapper;
-import com.baomidou.mybatisplus.plugins.Page;
-import com.stylefeng.guns.api.film.FilmAsyncServiceApi;
-import com.stylefeng.guns.api.film.FilmServiceApi;
-import com.stylefeng.guns.api.film.vo.*;
-import com.stylefeng.guns.core.util.DateUtil;
-import com.stylefeng.guns.rest.common.persistence.dao.*;
-import com.stylefeng.guns.rest.common.persistence.model.*;
+import com.mao.maoyan.api.film.FilmAsyncServiceApi;
+import com.mao.maoyan.api.film.vo.ActorVO;
+import com.mao.maoyan.api.film.vo.FilmDescVO;
+import com.mao.maoyan.api.film.vo.ImgVO;
+import com.mao.maoyan.film.common.persistence.dao.MoocActorTMapper;
+import com.mao.maoyan.film.common.persistence.dao.MoocFilmInfoTMapper;
+import com.mao.maoyan.film.common.persistence.model.MoocActorT;
+import com.mao.maoyan.film.common.persistence.model.MoocFilmInfoT;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * @author myseital
+ */
 @Component
 @Service(interfaceClass = FilmAsyncServiceApi.class)
 public class DefaultFilmAsyncServiceImpl implements FilmAsyncServiceApi {
@@ -26,7 +28,6 @@ public class DefaultFilmAsyncServiceImpl implements FilmAsyncServiceApi {
     private MoocActorTMapper moocActorTMapper;
 
     private MoocFilmInfoT getFilmInfo(String filmId){
-
         MoocFilmInfoT moocFilmInfoT = new MoocFilmInfoT();
         moocFilmInfoT.setFilmId(filmId);
 
@@ -37,7 +38,6 @@ public class DefaultFilmAsyncServiceImpl implements FilmAsyncServiceApi {
 
     @Override
     public FilmDescVO getFilmDesc(String filmId) {
-
         MoocFilmInfoT moocFilmInfoT = getFilmInfo(filmId);
 
         FilmDescVO filmDescVO = new FilmDescVO();
@@ -49,7 +49,6 @@ public class DefaultFilmAsyncServiceImpl implements FilmAsyncServiceApi {
 
     @Override
     public ImgVO getImgs(String filmId) {
-
         MoocFilmInfoT moocFilmInfoT = getFilmInfo(filmId);
         // 图片地址是五个以逗号为分隔的链接URL
         String filmImgStr = moocFilmInfoT.getFilmImgs();
@@ -67,9 +66,7 @@ public class DefaultFilmAsyncServiceImpl implements FilmAsyncServiceApi {
 
     @Override
     public ActorVO getDectInfo(String filmId) {
-
         MoocFilmInfoT moocFilmInfoT = getFilmInfo(filmId);
-
         // 获取导演编号
         Integer directId = moocFilmInfoT.getDirectorId();
 
@@ -84,11 +81,7 @@ public class DefaultFilmAsyncServiceImpl implements FilmAsyncServiceApi {
 
     @Override
     public List<ActorVO> getActors(String filmId) {
-
         List<ActorVO> actors = moocActorTMapper.getActors(filmId);
-
         return actors;
     }
-
-
 }

@@ -1,7 +1,7 @@
 package com.mao.maoyan.film.modular.auth.validator.impl;
 
-import com.stylefeng.guns.rest.modular.auth.validator.IReqValidator;
-import com.stylefeng.guns.rest.modular.auth.validator.dto.Credence;
+import com.mao.maoyan.film.modular.auth.validator.IReqValidator;
+import com.mao.maoyan.film.modular.auth.validator.dto.Credence;
 import org.springframework.stereotype.Service;
 
 /**

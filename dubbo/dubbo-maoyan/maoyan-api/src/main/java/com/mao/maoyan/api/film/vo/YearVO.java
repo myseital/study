@@ -13,6 +13,6 @@ public class YearVO implements Serializable {
     private static final long serialVersionUID = 705271386700182933L;
     private String yearId;
     private String yearName;
-    private Boolean isActive;
+    private Boolean active;
 
 }

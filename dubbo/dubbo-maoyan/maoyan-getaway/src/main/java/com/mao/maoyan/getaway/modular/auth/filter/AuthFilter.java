@@ -1,10 +1,10 @@
 package com.mao.maoyan.getaway.modular.auth.filter;
 
 import com.mao.maoyan.core.base.tips.ErrorTip;
+import com.mao.maoyan.core.config.properties.JwtProperties;
+import com.mao.maoyan.core.exception.BizExceptionEnum;
 import com.mao.maoyan.core.util.RenderUtil;
 import com.mao.maoyan.getaway.common.CurrentUser;
-import com.mao.maoyan.getaway.common.exception.BizExceptionEnum;
-import com.mao.maoyan.getaway.config.properties.JwtProperties;
 import com.mao.maoyan.getaway.modular.auth.util.JwtTokenUtil;
 import io.jsonwebtoken.JwtException;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,10 @@
 package com.mao.maoyan.film.modular.auth.filter;
 
-import com.stylefeng.guns.core.base.tips.ErrorTip;
-import com.stylefeng.guns.core.util.RenderUtil;
-import com.stylefeng.guns.rest.common.exception.BizExceptionEnum;
-import com.stylefeng.guns.rest.config.properties.JwtProperties;
-import com.stylefeng.guns.rest.modular.auth.util.JwtTokenUtil;
+import com.mao.maoyan.core.base.tips.ErrorTip;
+import com.mao.maoyan.core.config.properties.JwtProperties;
+import com.mao.maoyan.core.exception.BizExceptionEnum;
+import com.mao.maoyan.core.util.RenderUtil;
+import com.mao.maoyan.film.modular.auth.util.JwtTokenUtil;
 import io.jsonwebtoken.JwtException;
 import org.apache.commons.logging.Log;
 import org.apache.commons.logging.LogFactory;

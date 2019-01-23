@@ -2,11 +2,11 @@ package com.mao.maoyan.user.modular.auth.converter;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.mao.maoyan.core.config.properties.JwtProperties;
+import com.mao.maoyan.core.exception.BizExceptionEnum;
 import com.mao.maoyan.core.exception.GunsException;
 import com.mao.maoyan.core.support.HttpKit;
 import com.mao.maoyan.core.util.MD5Util;
-import com.mao.maoyan.user.common.exception.BizExceptionEnum;
-import com.mao.maoyan.user.config.properties.JwtProperties;
 import com.mao.maoyan.user.modular.auth.security.DataSecurityAction;
 import com.mao.maoyan.user.modular.auth.util.JwtTokenUtil;
 import org.springframework.beans.factory.annotation.Autowired;

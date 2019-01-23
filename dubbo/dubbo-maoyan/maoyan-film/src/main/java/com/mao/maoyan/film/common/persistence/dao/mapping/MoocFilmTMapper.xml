@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.stylefeng.guns.rest.common.persistence.dao.MoocFilmTMapper">
+<mapper namespace="com.mao.maoyan.film.common.persistence.dao.MoocFilmTMapper">
 
     <!-- 通用查询映射结果 -->
-    <resultMap id="BaseResultMap" type="com.stylefeng.guns.rest.common.persistence.model.MoocFilmT">
+    <resultMap id="BaseResultMap" type="com.mao.maoyan.film.common.persistence.model.MoocFilmT">
         <id column="UUID" property="uuid" />
         <result column="film_name" property="filmName" />
         <result column="film_type" property="filmType" />
@@ -20,7 +20,7 @@
     </resultMap>
 
 
-    <select id="getFilmDetailByName" parameterType="java.lang.String" resultType="com.stylefeng.guns.api.film.vo.FilmDetailVO">
+    <select id="getFilmDetailByName" parameterType="java.lang.String" resultType="com.mao.maoyan.api.film.vo.FilmDetailVO">
           SELECT
                 film.uuid AS filmId,
                 film.film_name AS filmName,

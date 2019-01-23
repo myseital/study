@@ -1,7 +1,7 @@
 package com.mao.maoyan.film.common.persistence.dao;
 
-import com.stylefeng.guns.rest.common.persistence.model.MoocCatDictT;
 import com.baomidou.mybatisplus.mapper.BaseMapper;
+import com.mao.maoyan.film.common.persistence.model.MoocCatDictT;
 
 /**
  * <p>

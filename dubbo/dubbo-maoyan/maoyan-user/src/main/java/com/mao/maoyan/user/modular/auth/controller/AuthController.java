@@ -1,7 +1,7 @@
 package com.mao.maoyan.user.modular.auth.controller;
 
+import com.mao.maoyan.core.exception.BizExceptionEnum;
 import com.mao.maoyan.core.exception.GunsException;
-import com.mao.maoyan.user.common.exception.BizExceptionEnum;
 import com.mao.maoyan.user.modular.auth.controller.dto.AuthRequest;
 import com.mao.maoyan.user.modular.auth.controller.dto.AuthResponse;
 import com.mao.maoyan.user.modular.auth.util.JwtTokenUtil;

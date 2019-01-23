@@ -1,6 +1,6 @@
 package com.mao.maoyan.film.modular.auth.security.impl;
 
-import com.stylefeng.guns.rest.modular.auth.security.DataSecurityAction;
+import com.mao.maoyan.film.modular.auth.security.DataSecurityAction;
 import org.springframework.util.Base64Utils;
 
 /**
