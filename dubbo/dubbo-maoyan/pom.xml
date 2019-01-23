@@ -16,6 +16,7 @@
         <module>maoyan-getaway</module>
         <module>maoyan-user</module>
         <module>maoyan-film</module>
+        <module>maoyan-cinema</module>
     </modules>
     <properties>
         <mybatisplus-spring-boot-starter.version>1.0.5</mybatisplus-spring-boot-starter.version>
