@@ -43,6 +43,6 @@ dubbo:
   protocol:
     name: dubbo
     port: 20885
-    accepts: 10
+    accepts: 50
   registry:
     address: zookeeper://localhost:2181

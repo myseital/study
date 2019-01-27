@@ -6,10 +6,7 @@ import com.baomidou.mybatisplus.plugins.Page;
 import com.mao.maoyan.api.cinema.CinemaServiceAPI;
 import com.mao.maoyan.api.cinema.vo.*;
 import com.mao.maoyan.cinema.common.persistence.dao.*;
-import com.mao.maoyan.cinema.common.persistence.model.MoocAreaDictT;
-import com.mao.maoyan.cinema.common.persistence.model.MoocBrandDictT;
-import com.mao.maoyan.cinema.common.persistence.model.MoocCinemaT;
-import com.mao.maoyan.cinema.common.persistence.model.MoocHallDictT;
+import com.mao.maoyan.cinema.common.persistence.model.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
@@ -50,7 +47,6 @@ public class DefaultCinemaServiceImpl implements CinemaServiceAPI {
             // %#3#%
             entityWrapper.like("hall_ids", "%#+" + cinemaQueryVO.getHallType() + "+#%");
         }
-
         // 将数据实体转换为业务实体
         List<MoocCinemaT> moocCinemaTS = moocCinemaTMapper.selectPage(page, entityWrapper);
         for (MoocCinemaT moocCinemaT : moocCinemaTS) {
@@ -62,10 +58,8 @@ public class DefaultCinemaServiceImpl implements CinemaServiceAPI {
 
             cinemas.add(cinemaVO);
         }
-
         // 根据条件，判断影院列表总数
         long counts = moocCinemaTMapper.selectCount(entityWrapper);
-
         // 组织返回值对象
         Page<CinemaVO> result = new Page<>();
         result.setRecords(cinemas);
@@ -102,10 +96,8 @@ public class DefaultCinemaServiceImpl implements CinemaServiceAPI {
                     brandVO.setActive(true);
                 }
             }
-
             brandVOS.add(brandVO);
         }
-
         return brandVOS;
     }
 
@@ -136,10 +128,8 @@ public class DefaultCinemaServiceImpl implements CinemaServiceAPI {
                     areaVO.setActive(true);
                 }
             }
-
             areaVOS.add(areaVO);
         }
-
         return areaVOS;
     }
 
@@ -170,10 +160,8 @@ public class DefaultCinemaServiceImpl implements CinemaServiceAPI {
                     hallTypeVO.setActive(true);
                 }
             }
-
             hallTypeVOS.add(hallTypeVO);
         }
-
         return hallTypeVOS;
     }
 
@@ -209,5 +197,15 @@ public class DefaultCinemaServiceImpl implements CinemaServiceAPI {
     public FilmInfoVO getFilmInfoByFieldId(int fieldId) {
         FilmInfoVO filmInfoVO = moocFieldTMapper.getFilmInfoById(fieldId);
         return filmInfoVO;
+    }
+
+    @Override
+    public OrderQueryVO getOrderNeeds(int fieldId) {
+        OrderQueryVO orderQueryVO = new OrderQueryVO();
+        MoocFieldT moocFieldT = moocFieldTMapper.selectById(fieldId);
+        orderQueryVO.setCinemaId(moocFieldT.getCinemaId()+"");
+        orderQueryVO.setFilmPrice(moocFieldT.getPrice()+"");
+
+        return orderQueryVO;
     }
 }

@@ -62,4 +62,11 @@ public interface CinemaServiceAPI {
      * @return
      */
     FilmInfoVO getFilmInfoByFieldId(int fieldId);
+
+    /**
+     * 该部分是订单模块需要的内容
+     * @param fieldId
+     * @return
+     */
+    OrderQueryVO getOrderNeeds(int fieldId);
 }
