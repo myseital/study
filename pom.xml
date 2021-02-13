@@ -14,7 +14,7 @@
 
     <modules>
         <module>dubbo</module>
-        <module>core</module>
+        <module>java-core</module>
     </modules>
 
     <name>study</name>

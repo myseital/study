@@ -7,8 +7,8 @@
         <artifactId>study</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
-    <artifactId>core</artifactId>
-    <name>core</name>
+    <artifactId>java-core</artifactId>
+    <name>java-core</name>
 
     <dependencies>
         <dependency>
