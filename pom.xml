@@ -15,6 +15,7 @@
     <modules>
         <module>dubbo</module>
         <module>java-core</module>
+        <module>spring-boot</module>
     </modules>
 
     <name>study</name>

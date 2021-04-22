@@ -5,12 +5,13 @@
     <modelVersion>4.0.0</modelVersion>
 
     <parent>
-        <artifactId>java-core</artifactId>
         <groupId>com.mao</groupId>
+        <artifactId>java-core</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
 
-    <artifactId>design</artifactId>
+    <artifactId>review</artifactId>
     <version>0.0.1-SNAPSHOT</version>
 
+    
 </project>
