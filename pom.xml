@@ -16,6 +16,8 @@
         <module>dubbo</module>
         <module>java-core</module>
         <module>spring-boot</module>
+        <module>elastic-search</module>
+        <module>tools</module>
     </modules>
 
     <name>study</name>
