@@ -1,16 +1,13 @@
-package com.mao.spring.boot;
+package com.mao.springboot.my.springboot.starter;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-/**
- * @author myseital
- * @date 2021/4/19 02:11
- */
 @SpringBootApplication
-public class DemoApplication {
+public class MySpringbootStarterApplication {
 
     public static void main(String[] args) {
-        SpringApplication.run(DemoApplication.class, args);
+        SpringApplication.run(MySpringbootStarterApplication.class, args);
     }
+
 }

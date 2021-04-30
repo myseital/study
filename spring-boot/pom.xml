@@ -10,5 +10,10 @@
     </parent>
 
     <artifactId>spring-boot</artifactId>
+    <packaging>pom</packaging>
 
+    <modules>
+        <module>my-springboot-starter</module>
+        <module>my-demo</module>
+    </modules>
 </project>
