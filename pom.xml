@@ -20,6 +20,7 @@
         <module>tools</module>
         <module>rocketmq</module>
         <module>spring-cloud</module>
+        <module>leetcode</module>
     </modules>
 
     <name>study</name>
