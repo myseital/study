@@ -21,6 +21,7 @@
         <module>rocketmq</module>
         <module>spring-cloud</module>
         <module>leetcode</module>
+        <module>apollo</module>
     </modules>
 
     <name>study</name>
