@@ -13,15 +13,10 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <modules>
-        <module>dubbo</module>
-        <module>java-core</module>
         <module>spring-boot</module>
         <module>elastic-search</module>
-        <module>tools</module>
         <module>rocketmq</module>
         <module>spring-cloud</module>
-        <module>leetcode</module>
-        <module>apollo</module>
     </modules>
 
     <name>study</name>
