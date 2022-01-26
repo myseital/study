@@ -7,4 +7,4 @@ target/
 *.ipr
 *.iws
 .DS_Store
-*/.mvn
+!**/.mvn/
