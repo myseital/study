@@ -2,6 +2,7 @@ package com.mao.springboot.my.springboot.starter.properties;
 
 import lombok.Data;
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.PropertySource;
 
 /**
  * @author myseital
@@ -9,6 +10,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
  */
 @Data
 @ConfigurationProperties(prefix = "my")
+@PropertySource("classpath:my-property.yml")
 public class MyProperties {
 
     private String sayWhat;
