@@ -15,7 +15,7 @@ import javax.annotation.Resource;
 @RestController
 public class MyController {
 
-    @Resource(name = "my")
+    @Resource
     private MyService myService;
 
     @GetMapping("/say")

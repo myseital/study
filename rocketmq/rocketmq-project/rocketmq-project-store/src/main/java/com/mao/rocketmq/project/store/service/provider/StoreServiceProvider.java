@@ -2,9 +2,9 @@ package com.mao.rocketmq.project.store.service.provider;
 
 import java.util.Date;
 
+import org.apache.dubbo.config.annotation.Service;
 import org.springframework.beans.factory.annotation.Autowired;
 
-import com.alibaba.dubbo.config.annotation.Service;
 import com.mao.rocketmq.project.store.api.StoreServiceApi;
 import com.mao.rocketmq.project.store.mapper.StoreMapper;
 @Service(

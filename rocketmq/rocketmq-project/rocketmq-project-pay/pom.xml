@@ -10,6 +10,14 @@
     <artifactId>rocketmq-project-pay</artifactId>
     <name>rocketmq-project-pay</name>
 
+    <dependencies>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-test</artifactId>
+            <scope>test</scope>
+        </dependency>
+    </dependencies>
+
     <build>
         <finalName>rocketmq-project-pay</finalName>
         <!-- 打包时包含properties、xml -->
