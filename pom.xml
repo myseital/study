@@ -42,6 +42,7 @@
         <druid.version>1.2.1</druid.version>
         <leaf.version>1.0.1-RELEASE</leaf.version>
         <perf4j.version>0.9.16</perf4j.version>
+        <commons-io.version>2.6</commons-io.version>
     </properties>
 
     <dependencyManagement>
@@ -164,6 +165,11 @@
                 <groupId>org.perf4j</groupId>
                 <artifactId>perf4j</artifactId>
                 <version>${perf4j.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>commons-io</groupId>
+                <artifactId>commons-io</artifactId>
+                <version>${commons-io.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

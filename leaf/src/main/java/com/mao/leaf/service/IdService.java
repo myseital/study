@@ -4,17 +4,24 @@ import com.mao.leaf.common.enums.Id4BizTagEnum;
 import com.sankuai.inf.leaf.common.Result;
 import com.sankuai.inf.leaf.common.Status;
 import com.sankuai.inf.leaf.service.SegmentService;
+import com.sankuai.inf.leaf.service.SnowflakeService;
+import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Service;
 
 import javax.annotation.Resource;
 import java.util.Objects;
+import java.util.Random;
 
 /**
  * @author myseital
  * @date 2022/04/16 22:39
  */
+@Slf4j
 @Service
 public class IdService {
+
+    @Resource
+    private SnowflakeService snowflakeService;
 
     @Resource
     private SegmentService segmentService;
@@ -36,7 +43,15 @@ public class IdService {
         long id = 0L;
         int retryNum = 1;
         while (success && retryNum <= MAX_RETRY_NUM) {
-            Result result = segmentService.getId(code);
+            int i = new Random().nextInt();
+            Result result;
+            if (i % 2 ==0) {
+                log.info("segmentService invoker");
+                result = segmentService.getId(code);
+            } else {
+                result = snowflakeService.getId(code);
+                log.info("snowflakeService invoker");
+            }
             if (Objects.equals(result.getStatus(), Status.SUCCESS)) {
                 success = false;
                 id = result.getId();
