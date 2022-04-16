@@ -12,6 +12,7 @@
         <module>spring-cloud</module>
         <module>mybatis</module>
         <module>dubbo</module>
+        <module>leaf</module>
     </modules>
 
     <name>study</name>
@@ -39,6 +40,8 @@
         <zkclient.version>0.11</zkclient.version>
         <log4j.version>1.2.16</log4j.version>
         <druid.version>1.2.1</druid.version>
+        <leaf.version>1.0.1-RELEASE</leaf.version>
+        <perf4j.version>0.9.16</perf4j.version>
     </properties>
 
     <dependencyManagement>
@@ -145,6 +148,22 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.sankuai.inf.leaf</groupId>
+                <artifactId>leaf-boot-starter</artifactId>
+                <version>${leaf.version}</version>
+                <exclusions>
+                    <exclusion>
+                        <groupId>org.mybatis</groupId>
+                        <artifactId>mybatis</artifactId>
+                    </exclusion>
+                </exclusions>
+            </dependency>
+            <dependency>
+                <groupId>org.perf4j</groupId>
+                <artifactId>perf4j</artifactId>
+                <version>${perf4j.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
