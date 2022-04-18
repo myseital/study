@@ -13,6 +13,13 @@
         <module>mybatis</module>
         <module>dubbo</module>
         <module>leaf</module>
+        <module>seate</module>
+        <module>seata</module>
+        <module>java-core</module>
+        <module>java-core/algorithm</module>
+        <module>java-core/design</module>
+        <module>java-core/concurrency</module>
+        <module>java-core/review</module>
     </modules>
 
     <name>study</name>
