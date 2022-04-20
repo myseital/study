@@ -21,6 +21,7 @@
         <module>java-core/concurrency</module>
         <module>java-core/review</module>
         <module>netty</module>
+        <module>netty/io</module>
     </modules>
 
     <name>study</name>
