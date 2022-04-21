@@ -1,20 +1,16 @@
 package com.mao.nio.reactor.many;
-      
-    import java.io.IOException;
-      
-    public class Main {  
-      
-          
-        public static void main(String[] args) {  
-            // TODO Auto-generated method stub  
-            try {  
-                TCPReactor reactor = new TCPReactor(1333);
-//                new Thread(reactor).start();
-                reactor.run();
-            } catch (IOException e) {  
-                // TODO Auto-generated catch block  
-                e.printStackTrace();  
-            }  
-        }  
-      
-    }  
+
+import java.io.IOException;
+
+public class Main {
+
+    public static void main(String[] args) {
+        try {
+            TCPReactor reactor = new TCPReactor(1333);
+            Thread thread = new Thread(reactor);
+            thread.start();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+}

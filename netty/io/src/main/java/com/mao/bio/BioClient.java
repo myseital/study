@@ -9,7 +9,7 @@ public class BioClient {
         Socket socket = null;
         OutputStream outputStream = null;
         try {
-            socket = new Socket("127.0.0.1", 9999);
+            socket = new Socket("127.0.0.1", 1333);
             new Thread(new BioClientHandler(socket)).start();  //循环读
             outputStream = socket.getOutputStream();
             Scanner scanner = new Scanner(System.in);
