@@ -22,6 +22,7 @@
         <module>java-core/review</module>
         <module>netty</module>
         <module>netty/io</module>
+        <module>netty/demo</module>
     </modules>
 
     <name>study</name>
@@ -52,6 +53,7 @@
         <leaf.version>1.0.1-RELEASE</leaf.version>
         <perf4j.version>0.9.16</perf4j.version>
         <commons-io.version>2.6</commons-io.version>
+        <reflections.version>0.9.10</reflections.version>
     </properties>
 
     <dependencyManagement>
@@ -179,6 +181,11 @@
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.reflections</groupId>
+                <artifactId>reflections</artifactId>
+                <version>${reflections.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
