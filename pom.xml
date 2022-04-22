@@ -51,7 +51,7 @@
         <druid.version>1.2.1</druid.version>
         <leaf.version>1.0.1-RELEASE</leaf.version>
         <perf4j.version>0.9.16</perf4j.version>
-        <commons-io.version>2.6</commons-io.version>
+        <commons-io.version>2.7</commons-io.version>
         <reflections.version>0.9.10</reflections.version>
         <protobuf-maven-plugin.version>0.5.0</protobuf-maven-plugin.version>
         <os-maven-plugin.version>1.5.0.Final</os-maven-plugin.version>
