@@ -3,7 +3,7 @@ syntax = "proto2";
 package com.mao.protobuf;
 
 option java_package = "com.mao.protobuf";
-option java_outer_classname = "DataInfo";
+option java_outer_classname = "Info";
 
 message Student{
     required string name = 1;

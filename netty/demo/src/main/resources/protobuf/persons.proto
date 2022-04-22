@@ -2,6 +2,8 @@ syntax = "proto2";
 
 package com.mao.protobuf;
 
+import "Student.proto";
+
 option java_package = "com.mao.protobuf";
 option java_outer_classname = "DataInfo";
 
@@ -20,11 +22,11 @@ message MyObject{
     }
 }
 
-message Student{
-    optional string name = 1;
-    optional int32 age = 2;
-    optional string address = 3;
-}
+//message Student1{
+//    optional string name = 1;
+//    optional int32 age = 2;
+//    optional string address = 3;
+//}
 
 message Teacher{
     optional string name = 1;
