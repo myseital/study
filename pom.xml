@@ -13,7 +13,6 @@
         <module>mybatis</module>
         <module>dubbo</module>
 <!--        <module>leaf</module>-->
-        <module>seata</module>
         <module>java-core</module>
         <module>java-core/algorithm</module>
         <module>java-core/design</module>
@@ -22,6 +21,8 @@
         <module>netty</module>
         <module>netty/io</module>
         <module>netty/demo</module>
+        <module>distributed-transaction</module>
+        <module>distributed-transaction/seata</module>
     </modules>
 
     <name>study</name>
