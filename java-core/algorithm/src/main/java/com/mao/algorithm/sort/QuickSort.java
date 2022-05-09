@@ -3,7 +3,7 @@ package com.mao.algorithm.sort;
 import java.util.Arrays;
 
 /**
- * 快速排序（Quick Sort）算法和冒泡排序算法类似，
+ * 快速排序 (二分排序)（Quick Sort）算法和冒泡排序算法类似，
  * 都是基于交换排序思想实现的，快速排序算法是对冒泡排序算法的改进，从而具有更高的执行效率。
  * • 首先设定一个分界值，通过该分界值把数组分为左右两个部分；
  * • 将大于等于分界值的元素放到分界值的右边，将小于分界值的元素放到分界值的左边；
@@ -22,10 +22,70 @@ public class QuickSort {
         System.out.println("排序后：" + Arrays.toString(quickNums));
     }
 
-    /**
-     * 快速排序 (二分排序)
-     */
-    private static void quickSort(int[] nums, int left, int right) {
+
+    public static void quickSort(int[] arr){
+        qsort(arr, 0, arr.length-1);
+    }
+    private static void qsort(int[] arr, int low, int high){
+        if (low >= high)
+            return;
+        //将数组分为两部分
+        int pivot = partition(arr, low, high);
+        //递归排序左子数组
+        qsort(arr, low, pivot-1);
+        //递归排序右子数组
+        qsort(arr, pivot+1, high);
+    }
+    private static int partition(int[] arr, int low, int high){
+        int pivot = arr[low];     //基准
+        while (low < high){
+            while (low < high && arr[high] >= pivot) --high;
+            //交换比基准大的记录到左端
+            arr[low]=arr[high];
+            while (low < high && arr[low] <= pivot) ++low;
+            //交换比基准小的记录到右端
+            arr[high] = arr[low];
+        }
+        //扫描完成，基准到位
+        arr[low] = pivot;
+        //返回的是基准的位置
+        return low;
+    }
+
+
+    public static void quickSort(int[] arr, int start, int end) {
+        //直到start=end时结束递归
+        if (start >= end) {
+            return;
+        }
+        int left = start;
+        int right = end;
+        // 基准数
+        int baseval = arr[start];
+        while (left < right) {
+            // 从右向左找比基准数小的数
+            while (left < right && arr[right] > baseval) {
+                right--;
+            }
+            arr[left] = arr[right];
+            left++;
+
+            // 从左向右找比基准数大的数
+            while (left < right && arr[left] <= baseval) {
+                left++;
+            }
+            arr[right] = arr[left];
+            right--;
+        }
+        // 把基准数放到i的位置
+        arr[left] = baseval;
+        System.out.println(Arrays.toString(arr));
+        // 递归
+        quickSort(arr, start, left - 1);
+        quickSort(arr, left + 1, end);
+    }
+
+    private static void quickSort1(int[] nums, int left, int right) {
         int f, t;
         int ltemp = left;
         int rtemp = right;
@@ -46,16 +106,20 @@ public class QuickSort {
                 ++ltemp;
             }
         }
+
+        System.out.println(Arrays.toString(nums));
+
+
         if (ltemp == rtemp) {
             ltemp++;
         }
         if (left < rtemp) {
             // 递归调用
-            quickSort(nums, left, ltemp - 1);
+            quickSort1(nums, left, ltemp - 1);
         }
         if (right > ltemp) {
             // 递归调用
-            quickSort(nums, rtemp + 1, right);
+            quickSort1(nums, rtemp + 1, right);
         }
     }
 }

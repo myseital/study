@@ -21,65 +21,73 @@ public class HeapSort {
         System.out.println("堆排序后：" + Arrays.toString(heapNums));
     }
 
-    private static void heapSort(int[] nums, int n) {
-        int i, j, k, temp;
-        // 将 nums[0,n-1] 建成大根堆
-        for (i = n / 2 - 1; i >= 0; i--) {
-            // 第 i 个节点，有右子树
-            while (2 * i + 1 < n) {
-                j = 2 * i + 1;
-                if ((j + 1) < n) {
-                    // 右左子树小于右子树，则需要比较右子树
-                    if (nums[j] < nums[j + 1]) {
-                        // 序号增加 1，指向右子树
-                        j++;
-                    }
-                }
-                if (nums[i] < nums[j]) {
-                    // 交换数据
-                    temp = nums[i];
-                    nums[i] = nums[j];
-                    nums[j] = temp;
-                    // 堆被破坏，重新调整
-                    i = j;
-                } else {
-                    // 左右子节点均大，则堆未被破坏，不需要调整
-                    break;
+    private static void heapSort(int[] nums, int length) {
+        int i;
+        // 从最后一个非叶节点开始将 nums[0,n-1] 构建大顶堆
+        for (i = length / 2 - 1; i >= 0; i--) {
+            maximumHeap(nums, length, i);
+        }
+        // 从最小的叶子节点开始与根节点进行交换并重新构建大顶堆
+        for (i = length - 1; i > 0; i--) {
+            // 与第 i 个记录交换
+            swap(nums, i, 0);
+            length--;
+            maximumHeap(nums, length, 0);
+            // 输出每步排序结果
+            System.out.println("第" + (length - i) + "次排序：" + Arrays.toString(nums));
+        }
+    }
+
+    private static void maximumHeap(int[] nums, int length, int i) {
+        int j;
+        // 第 i 个节点，有右子树
+        while (2 * i + 1 < length) {
+            j = 2 * i + 1;
+            if ((j + 1) < length) {
+                // 右左子树小于右子树，则需要比较右子树
+                if (nums[j] < nums[j + 1]) {
+                    // 序号增加 1，指向右子树
+                    j++;
                 }
             }
+            if (nums[i] < nums[j]) {
+                // 交换数据
+                swap(nums, j, i);
+                // 堆被破坏，重新调整
+                i = j;
+            } else {
+                // 左右子节点均大，则堆未被破坏，不需要调整
+                break;
+            }
+        }
+    }
+
+    private static void heapify(int[] arr, int len, int i) {
+        // 先根据堆性质，找出它左右节点的索引
+        int left = 2 * i + 1;
+        int right = 2 * i + 2;
+        // 默认当前节点（父节点）是最大值。
+        int largestIndex = i;
+        if (left < len && arr[left] > arr[largestIndex]) {
+            // 如果有左节点，并且左节点的值更大，更新最大值的索引
+            largestIndex = left;
+        }
+        if (right < len && arr[right] > arr[largestIndex]) {
+            // 如果有右节点，并且右节点的值更大，更新最大值的索引
+            largestIndex = right;
         }
 
-        for (i = n - 1; i > 0; i--) {
-            // 与第 i 个记录交换
-            temp = nums[0];
-            nums[0] = nums[i];
-            nums[i] = temp;
-            k = 0;
-            // 第 i 个节点有右子树
-            while (2 * k + 1 < i) {
-                j = 2 * k + 1;
-                if ((j + 1) < i) {
-                    // 右左子树小于右子树，则需要比较右子树
-                    if (nums[j] < nums[j + 1]) {
-                        // 序号增加 1，指向右子树
-                        j++;
-                    }
-                }
-                if (nums[k] < nums[j]) {
-                    // 交换数据
-                    temp = nums[k];
-                    nums[k] = nums[j];
-                    nums[j] = temp;
-                    // 堆被破坏，重新调整
-                    k = j;
-                } else {
-                    // 左右子节点均大，则堆未被破坏，不需要调整
-                    break;
-                }
-            }
-            // 输出每步排序结果
-            System.out.print("第" + (n - i) + "次排序：");
-            System.out.println(Arrays.toString(nums));
+        if (largestIndex != i) {
+            // 如果最大值不是当前非叶子节点的值，那么就把当前节点和最大值的子节点值互换
+            swap(arr, largestIndex, i);
+            // 因为互换之后，子节点的值变了，如果该子节点也有自己的子节点，仍需要再次调整。
+            heapify(arr, largestIndex, len);
         }
+    }
+
+    private static void swap(int[] nums, int i, int j) {
+        int temp = nums[j];
+        nums[j] = nums[i];
+        nums[i] = temp;
     }
 }

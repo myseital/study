@@ -24,10 +24,37 @@ public class InsertionSort {
         System.out.println("排序后：" + Arrays.toString(insertNums));
     }
 
-    /**
-     * 插入排序
-     */
+    public static void insertionSort(int[] arr){
+        for (int i=1; i<arr.length; ++i){
+            int value = arr[i];
+            int position=i;
+            while (position>0 && arr[position-1]>value){
+                arr[position] = arr[position-1];
+                position--;
+            }
+            arr[position] = value;
+        }//loop i
+    }
+
     private static void insertSort(int[] nums) {
+        int length = nums.length;
+        for (int i = 1; i < length; i++) {
+            int index = i;
+            int temp = nums[i];
+            for (int j = i - 1; j >= 0; j--) {
+                if (nums[j] > temp) {
+                    // 交换位置
+                    index = j;
+                    nums[j + 1] = nums[j];
+                    nums[j] = temp;
+                }
+            }
+            nums[index] = temp;
+            System.out.println("排序" + i + "次：" + Arrays.toString(nums));
+        }
+    }
+
+    private static void insertSort1(int[] nums) {
         int i, j, k;
         for (i = 1; i < nums.length; i++) {
             k = nums[i];
