@@ -9,7 +9,7 @@
         <module>spring-boot</module>
         <module>elastic-search</module>
         <module>rocketmq</module>
-        <module>spring-cloud</module>
+        <module>spring-cloud-netflix</module>
         <module>mybatis</module>
         <module>dubbo</module>
 <!--        <module>leaf</module>-->
