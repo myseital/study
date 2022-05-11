@@ -15,7 +15,7 @@ public class TestService {
     private RestTemplate restTemplate;
 
     public void getId() {
-        String data = this.restTemplate.getForObject("http://spring-cloud-eureka-server/simple/" + 1, String.class);
+        String data = this.restTemplate.getForObject("http://spring-cloud-eureka-server/user/" + 1, String.class);
         System.out.println(data);
     }
 }

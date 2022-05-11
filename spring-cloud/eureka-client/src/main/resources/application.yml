@@ -4,15 +4,14 @@ spring:
 server:
   port: 8080
 
-## Spring Cloud Eureka \u670D\u52A1\u5668\u4F5C\u4E3A\u6CE8\u518C\u4E2D\u5FC3
-## \u901A\u5E38\u60C5\u51B5\u4E0B\uFF0C\u4E0D\u9700\u8981\u518D\u6CE8\u518C\u5230\u5176\u4ED6\u6CE8\u518C\u4E2D\u5FC3\u53BB
-## \u540C\u65F6\uFF0C\u5B83\u4E5F\u4E0D\u9700\u8981\u83B7\u53D6\u5BA2\u6237\u7AEF\u4FE1\u606F
+## Spring Cloud Eureka 服务器作为注册中心
+## 通常情况下，不需要再注册到其他注册中心去 同时，它也不需要获取客户端信息
 eureka:
   client:
-    ### \u53D6\u6D88\u5411\u6CE8\u518C\u4E2D\u5FC3\u6CE8\u518C
+    ### 向注册中心注册
     register-with-eureka: true
-    ### \u53D6\u6D88\u5411\u6CE8\u518C\u4E2D\u5FC3\u83B7\u53D6\u6CE8\u518C\u4FE1\u606F\uFF08\u670D\u52A1\u3001\u5B9E\u4F8B\u4FE1\u606F\uFF09
+    ### 向注册中心获取注册信息（服务、实例信息）
     fetch-registry: true
-    ### Spring Cloud Eureka \u5BA2\u6237\u7AEF \u6CE8\u518C\u5230 Eureka \u670D\u52A1\u5668
+    ### Spring Cloud Eureka 客户端 注册到 Eureka 服务器
     service-url:
       defaultZone: http://localhost:9090/eureka
