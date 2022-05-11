@@ -3,9 +3,9 @@ package com.mao.spring.cloud.alibaba.nacos;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.cloud.client.loadbalancer.LoadBalanced;
+import org.springframework.context.annotation.Bean;
+import org.springframework.web.client.RestTemplate;
 
 /**
  * @author myseital
@@ -15,15 +15,13 @@ import org.springframework.web.bind.annotation.RestController;
 @EnableDiscoveryClient
 public class NacosClientApplication {
 
-    public static void main(String[] args) {
-        SpringApplication.run(NacosClientApplication.class, args);
+    @Bean
+    @LoadBalanced
+    public RestTemplate restTemplate() {
+        return new RestTemplate();
     }
 
-    @RestController
-    class EchoController {
-        @GetMapping(value = "/echo/{string}")
-        public String echo(@PathVariable String string) {
-            return "Hello Nacos Discovery " + string;
-        }
+    public static void main(String[] args) {
+        SpringApplication.run(NacosClientApplication.class, args);
     }
 }
