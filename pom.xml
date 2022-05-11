@@ -36,7 +36,7 @@
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
         <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
-        <spring-framework.version>5.2.8.RELEASE</spring-framework.version>
+        <spring-framework.version>5.2.9.RELEASE</spring-framework.version>
         <spring-cloud-netflix.version>Hoxton.SR12</spring-cloud-netflix.version>
         <spring-cloud-alibaba.version>2.2.7.RELEASE</spring-cloud-alibaba.version>
         <mybatis-spring-boot-starter.version>2.1.1</mybatis-spring-boot-starter.version>
