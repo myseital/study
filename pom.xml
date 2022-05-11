@@ -24,6 +24,8 @@
         <module>distributed-transaction</module>
         <module>distributed-transaction/seata</module>
         <module>spring-boot/distributed-lock</module>
+        <module>spring-cloud-alibaba</module>
+        <module>spring-cloud-alibaba/nacos-client</module>
     </modules>
 
     <name>study</name>
@@ -33,15 +35,17 @@
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
         <java.version>1.8</java.version>
-        <spring-boot.version>2.3.1.RELEASE</spring-boot.version>
-        <spring-framework.version>5.2.7.RELEASE</spring-framework.version>
-        <spring-cloud.version>Hoxton.SR12</spring-cloud.version>
+        <spring-boot.version>2.3.12.RELEASE</spring-boot.version>
+        <spring-framework.version>5.2.8.RELEASE</spring-framework.version>
+        <spring-cloud-netflix.version>Hoxton.SR12</spring-cloud-netflix.version>
+        <spring-cloud-alibaba.version>2.2.7.RELEASE</spring-cloud-alibaba.version>
         <mybatis-spring-boot-starter.version>2.1.1</mybatis-spring-boot-starter.version>
         <mapper-spring-boot-starter.version>2.1.5</mapper-spring-boot-starter.version>
-        <dubbo-spring-boot-starter.version>2.7.6</dubbo-spring-boot-starter.version>
-        <dubbo.version>2.7.6</dubbo.version>
+        <dubbo-spring-boot-starter.version>2.7.13</dubbo-spring-boot-starter.version>
+        <dubbo.version>2.7.13</dubbo.version>
         <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
         <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
+        <spring-boot-maven-plugin.version>2.3.1.RELEASE</spring-boot-maven-plugin.version>
         <mysql-connector-java.version>8.0.11</mysql-connector-java.version>
         <fastjson.version>1.2.73</fastjson.version>
         <guava.version>31.1-jre</guava.version>
@@ -256,7 +260,7 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
-                <version>${spring-boot.version}</version>
+                <version>${spring-boot-maven-plugin.version}</version>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
