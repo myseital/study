@@ -1,0 +1,21 @@
+spring:
+  application:
+    name: sentinel
+  cloud:
+    sentinel:
+      transport:
+        port: 8719
+        dashboard:  localhost:8082
+        datasource:
+          ds1:
+            nacos:
+              server-addr: ${nacos.server-addr}
+              dataId: ${nacos.dataId}
+              groupId: ${nacos.groupId}
+              data-type: json
+              rule-type: flow
+nacos:
+  server-addr: http://42.192.154.95:8848
+  dataId: nacos-sentinel
+  groupId: DEFAULT_GROUP
+  namespace:

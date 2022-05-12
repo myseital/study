@@ -28,6 +28,7 @@
         <module>spring-cloud-alibaba/nacos-client</module>
         <module>spring-cloud-alibaba/nacos-service</module>
         <module>spring-cloud-alibaba/nacos-config</module>
+        <module>spring-cloud-alibaba/sentinel</module>
     </modules>
 
     <name>study</name>
