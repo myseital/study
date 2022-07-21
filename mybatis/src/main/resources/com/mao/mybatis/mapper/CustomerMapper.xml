@@ -1,0 +1,156 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.mao.mybatis.mapper.CustomerMapper">
+  <resultMap id="BaseResultMap" type="com.mao.mybatis.domain.Customer">
+    <!--@mbg.generated-->
+    <!--@Table `customer`-->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="name" jdbcType="VARCHAR" property="name" />
+    <result column="mobile" jdbcType="VARCHAR" property="mobile" />
+    <result column="phone" jdbcType="VARCHAR" property="phone" />
+    <result column="address" jdbcType="VARCHAR" property="address" />
+    <result column="company" jdbcType="VARCHAR" property="company" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updator" jdbcType="VARCHAR" property="updator" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    `id`, `name`, `mobile`, `phone`, `address`, `company`, `creator`, `created_at`, `updator`, 
+    `updated_at`
+  </sql>
+  <select id="selectByPrimaryKey" parameterType="java.lang.Integer" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select 
+    <include refid="Base_Column_List" />
+    from `customer`
+    where `id` = #{id,jdbcType=INTEGER}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+    <!--@mbg.generated-->
+    delete from `customer`
+    where `id` = #{id,jdbcType=INTEGER}
+  </delete>
+  <insert id="insert" keyColumn="id" keyProperty="id" parameterType="com.mao.mybatis.domain.Customer" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `customer` (`name`, `mobile`, `phone`, 
+      `address`, `company`, `creator`, 
+      `created_at`, `updator`, `updated_at`
+      )
+    values (#{name,jdbcType=VARCHAR}, #{mobile,jdbcType=VARCHAR}, #{phone,jdbcType=VARCHAR}, 
+      #{address,jdbcType=VARCHAR}, #{company,jdbcType=VARCHAR}, #{creator,jdbcType=VARCHAR}, 
+      #{createdAt,jdbcType=TIMESTAMP}, #{updator,jdbcType=VARCHAR}, #{updatedAt,jdbcType=TIMESTAMP}
+      )
+  </insert>
+  <insert id="insertSelective" keyColumn="id" keyProperty="id" parameterType="com.mao.mybatis.domain.Customer" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into `customer`
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        `name`,
+      </if>
+      <if test="mobile != null">
+        `mobile`,
+      </if>
+      <if test="phone != null">
+        `phone`,
+      </if>
+      <if test="address != null">
+        `address`,
+      </if>
+      <if test="company != null">
+        `company`,
+      </if>
+      <if test="creator != null">
+        `creator`,
+      </if>
+      <if test="createdAt != null">
+        `created_at`,
+      </if>
+      <if test="updator != null">
+        `updator`,
+      </if>
+      <if test="updatedAt != null">
+        `updated_at`,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="name != null">
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updator != null">
+        #{updator,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAt != null">
+        #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="com.mao.mybatis.domain.Customer">
+    <!--@mbg.generated-->
+    update `customer`
+    <set>
+      <if test="name != null">
+        `name` = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="mobile != null">
+        `mobile` = #{mobile,jdbcType=VARCHAR},
+      </if>
+      <if test="phone != null">
+        `phone` = #{phone,jdbcType=VARCHAR},
+      </if>
+      <if test="address != null">
+        `address` = #{address,jdbcType=VARCHAR},
+      </if>
+      <if test="company != null">
+        `company` = #{company,jdbcType=VARCHAR},
+      </if>
+      <if test="creator != null">
+        `creator` = #{creator,jdbcType=VARCHAR},
+      </if>
+      <if test="createdAt != null">
+        `created_at` = #{createdAt,jdbcType=TIMESTAMP},
+      </if>
+      <if test="updator != null">
+        `updator` = #{updator,jdbcType=VARCHAR},
+      </if>
+      <if test="updatedAt != null">
+        `updated_at` = #{updatedAt,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where `id` = #{id,jdbcType=INTEGER}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="com.mao.mybatis.domain.Customer">
+    <!--@mbg.generated-->
+    update `customer`
+    set `name` = #{name,jdbcType=VARCHAR},
+      `mobile` = #{mobile,jdbcType=VARCHAR},
+      `phone` = #{phone,jdbcType=VARCHAR},
+      `address` = #{address,jdbcType=VARCHAR},
+      `company` = #{company,jdbcType=VARCHAR},
+      `creator` = #{creator,jdbcType=VARCHAR},
+      `created_at` = #{createdAt,jdbcType=TIMESTAMP},
+      `updator` = #{updator,jdbcType=VARCHAR},
+      `updated_at` = #{updatedAt,jdbcType=TIMESTAMP}
+    where `id` = #{id,jdbcType=INTEGER}
+  </update>
+</mapper>

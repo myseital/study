@@ -29,6 +29,7 @@
         <module>spring-cloud-alibaba/nacos-service</module>
         <module>spring-cloud-alibaba/nacos-config</module>
         <module>spring-cloud-alibaba/sentinel</module>
+        <module>kafka</module>
     </modules>
 
     <name>study</name>
@@ -44,6 +45,9 @@
         <spring-cloud-alibaba.version>2.2.7.RELEASE</spring-cloud-alibaba.version>
         <mybatis-spring-boot-starter.version>2.1.1</mybatis-spring-boot-starter.version>
         <mapper-spring-boot-starter.version>2.1.5</mapper-spring-boot-starter.version>
+        <druid-spring-boot-starter.version>1.2.1</druid-spring-boot-starter.version>
+        <mapper.version>4.1.5</mapper.version>
+        <pagehelper-spring-boot-starter.version>1.2.13</pagehelper-spring-boot-starter.version>
         <dubbo-spring-boot-starter.version>2.7.13</dubbo-spring-boot-starter.version>
         <dubbo.version>2.7.13</dubbo.version>
         <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
@@ -214,6 +218,16 @@
                 <groupId>io.etcd</groupId>
                 <artifactId>jetcd-core</artifactId>
                 <version>${jetcd.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.alibaba</groupId>
+                <artifactId>druid-spring-boot-starter</artifactId>
+                <version>${druid-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>com.github.pagehelper</groupId>
+                <artifactId>pagehelper-spring-boot-starter</artifactId>
+                <version>${pagehelper-spring-boot-starter.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
