@@ -9,11 +9,11 @@ import org.springframework.stereotype.Component;
  * @author myseital
  * @date 2022/5/12 15:16
  */
-@Component
-@RefreshScope
+//@Component
+//@RefreshScope
 public class NacosConfig {
 
-    @Value("${config-value}")
+//    @Value("${config-value}")
     private String value;
 
     public String getValue() {

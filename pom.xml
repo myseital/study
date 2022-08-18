@@ -25,11 +25,10 @@
         <module>distributed-transaction/seata</module>
         <module>spring-boot/distributed-lock</module>
         <module>spring-cloud-alibaba</module>
-        <module>spring-cloud-alibaba/nacos-client</module>
-        <module>spring-cloud-alibaba/nacos-service</module>
-        <module>spring-cloud-alibaba/nacos-config</module>
         <module>spring-cloud-alibaba/sentinel</module>
         <module>kafka</module>
+        <module>spring-cloud-alibaba/naocs</module>
+        <module>spring-security</module>
     </modules>
 
     <name>study</name>
@@ -71,6 +70,7 @@
         <jol.version>0.9</jol.version>
         <redisson.version>3.13.4</redisson.version>
         <jetcd.version>0.5.7</jetcd.version>
+        <bootstrap.version>4.5.0</bootstrap.version>
     </properties>
 
     <dependencyManagement>
@@ -228,6 +228,11 @@
                 <groupId>com.github.pagehelper</groupId>
                 <artifactId>pagehelper-spring-boot-starter</artifactId>
                 <version>${pagehelper-spring-boot-starter.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.webjars</groupId>
+                <artifactId>bootstrap</artifactId>
+                <version>${bootstrap.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

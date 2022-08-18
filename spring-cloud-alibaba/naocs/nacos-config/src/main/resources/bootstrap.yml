@@ -1,0 +1,18 @@
+spring:
+  profiles:
+    active: dev
+  application:
+    name: ydm
+  cloud:
+    nacos:
+      config:
+        server_addr: http://42.192.154.95:8848
+#        server_addr: http://116.62.53.208:18859
+        username: nacos
+        password: nacos
+        context-path: /nacos
+#        prefix: config
+        file_extension: yml
+        group: ydm
+        ## 对应命名空间ID
+        namespace: ydm-dev

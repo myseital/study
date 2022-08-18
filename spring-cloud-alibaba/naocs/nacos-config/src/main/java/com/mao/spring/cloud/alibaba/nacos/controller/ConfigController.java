@@ -15,14 +15,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RefreshScope
 public class ConfigController {
 
-    @Autowired
-    private NacosConfig config;
-
-    @Value("${config-value}")
-    private String value;
+//    @Autowired
+//    private NacosConfig config;
+//
+//    @Value("${config-value}")
+//    private String value;
 
     @GetMapping(value = "/config")
     public String config() {
-        return config.getValue() + "\n" + value;
+        return null;
+//        return config.getValue() + "\n" + value;
     }
 }
