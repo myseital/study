@@ -15,5 +15,6 @@
     <modules>
         <module>my-springboot-starter</module>
         <module>my-demo</module>
+        <module>log-record</module>
     </modules>
 </project>
