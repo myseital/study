@@ -1,11 +1,11 @@
 package com.mao.security.config;
 
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.Ordered;
 import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
-import static org.springframework.core.Ordered.HIGHEST_PRECEDENCE;
 
 /**
  * @author myseital
@@ -25,7 +25,9 @@ public class WebMvcConfig implements WebMvcConfigurer {
     @Override
     public void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/login").setViewName("login");
-        registry.setOrder(HIGHEST_PRECEDENCE);
+        registry.addViewController("/admin").setViewName("admin");
+        registry.addViewController("/").setViewName("index");
+        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
     }
 }
 

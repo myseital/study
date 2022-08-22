@@ -5,7 +5,7 @@
     <modelVersion>4.0.0</modelVersion>
     <parent>
         <groupId>com.mao.spring.cloud</groupId>
-        <artifactId>spring-cloud-alibaba</artifactId>
+        <artifactId>naocs</artifactId>
         <version>0.0.1-SNAPSHOT</version>
     </parent>
     <artifactId>nacos-client</artifactId>
@@ -17,6 +17,4 @@
             <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
         </dependency>
     </dependencies>
-
-
 </project>

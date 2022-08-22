@@ -12,6 +12,11 @@
     <artifactId>spring-cloud-alibaba</artifactId>
     <packaging>pom</packaging>
 
+    <modules>
+        <module>sentinel</module>
+        <module>naocs</module>
+    </modules>
+
     <dependencyManagement>
         <dependencies>
             <dependency>
