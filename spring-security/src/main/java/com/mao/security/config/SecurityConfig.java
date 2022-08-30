@@ -18,6 +18,8 @@ import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
+import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.authentication.AuthenticationFailureHandler;
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
@@ -127,6 +129,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        return new BCryptPasswordEncoder();
+        String defaultEncode = "BCrypt";
+        Map<String, PasswordEncoder> encoders = ImmutableMap.of(
+                defaultEncode, new BCryptPasswordEncoder(),
+                "SHA-1", new MessageDigestPasswordEncoder("SHA-1")
+        );
+
+       return new DelegatingPasswordEncoder(defaultEncode, encoders);
+//        return new BCryptPasswordEncoder();
     }
 }

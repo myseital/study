@@ -73,6 +73,7 @@
         <redisson.version>3.13.4</redisson.version>
         <jetcd.version>0.5.7</jetcd.version>
         <bootstrap.version>4.5.0</bootstrap.version>
+        <passay.version>1.6.0</passay.version>
     </properties>
 
     <dependencyManagement>
@@ -245,6 +246,11 @@
                 <groupId>tk.mybatis</groupId>
                 <artifactId>mapper-generator</artifactId>
                 <version>${mapper-generator.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.passay</groupId>
+                <artifactId>passay</artifactId>
+                <version>${passay.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>
