@@ -1,0 +1,47 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: fengchuang-admin
+  mvc:
+    servlet:
+      path: /api/v1
+  devtools:
+    restart:
+      enabled: true
+      additional-paths: src/java/main
+      exclude: static/**,public/**,WEB-INF/**
+  datasource:
+    druid:
+      driver-class-name: com.mysql.cj.jdbc.Driver
+      url: jdbc:mysql://42.192.154.95:3306/fengchuang-admin?useUnicode=true&allowPublicKeyRetrieval=true&characterEncoding=utf8&autoReconnect=true&allowMultiQueries=true&useSSL=false&serverTimezone=Asia/Shanghai
+      username: root
+      password: myseital
+      initial-size: 20
+      min-idle: 20
+      max-active: 500
+      time-between-eviction-runs-millis: 60000
+      min-evictable-idle-time-millis: 300000
+      validation-query: "SELECT 'x'"
+      test-while-idle: true
+      test-on-borrow: false
+      test-on-return: false
+      pool-prepared-statements: false
+      max-pool-prepared-statement-per-connection-size: 20
+      web-stat-filter.enabled: true
+      web-stat-filter.url-pattern: /
+      web-stat-filter.exclusions: '*.js, *.gif, *.jpg, *.bmp, *.png, *.css, *.ico, /druid/*'
+      web-stat-filter.session-stat-enable: true
+      stat-view-servlet.enabled: true
+      stat-view-servlet.url-pattern: /druid/*
+      stat-view-servlet.reset-enable: false
+mybatis:
+  type-aliases-package: com.fengchuang.admin.dao.model
+  mapper-locations: classpath*:mapper/*.xml
+  check-config-location: true
+pagehelper:
+  helperDialect: mysql
+  reasonable: true
+  supportMethodsArguments: true
+

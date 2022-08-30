@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.fengchuang.admin.dao.mapper.StockInfoMapper">
+  <resultMap id="BaseResultMap" type="com.fengchuang.admin.dao.model.StockInfo">
+    <!--
+      WARNING - @mbg.generated
+    -->
+    <id column="id" jdbcType="INTEGER" property="id" />
+    <result column="warehouse_id" jdbcType="INTEGER" property="warehouseId" />
+    <result column="goods_id" jdbcType="INTEGER" property="goodsId" />
+    <result column="sku_id" jdbcType="INTEGER" property="skuId" />
+    <result column="stock_number" jdbcType="INTEGER" property="stockNumber" />
+    <result column="creator" jdbcType="VARCHAR" property="creator" />
+    <result column="created_at" jdbcType="TIMESTAMP" property="createdAt" />
+    <result column="updator" jdbcType="VARCHAR" property="updator" />
+    <result column="updated_at" jdbcType="TIMESTAMP" property="updatedAt" />
+  </resultMap>
+</mapper>
