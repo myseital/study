@@ -8,3 +8,7 @@ target/
 *.iws
 .DS_Store
 !**/.mvn/
+
+*.log
+*.log*
+/logs/
