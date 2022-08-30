@@ -74,6 +74,7 @@
         <jetcd.version>0.5.7</jetcd.version>
         <bootstrap.version>4.5.0</bootstrap.version>
         <passay.version>1.6.0</passay.version>
+        <problem.version>0.26.1</problem.version>
     </properties>
 
     <dependencyManagement>
@@ -251,6 +252,11 @@
                 <groupId>org.passay</groupId>
                 <artifactId>passay</artifactId>
                 <version>${passay.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.zalando</groupId>
+                <artifactId>problem-spring-web</artifactId>
+                <version>${problem.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

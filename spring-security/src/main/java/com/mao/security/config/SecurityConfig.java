@@ -9,6 +9,8 @@ import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
 import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Import;
+import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.security.config.Customizer;
@@ -25,6 +27,7 @@ import org.springframework.security.web.authentication.AuthenticationFailureHand
 import org.springframework.security.web.authentication.AuthenticationSuccessHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.security.web.authentication.logout.LogoutSuccessHandler;
+import org.zalando.problem.spring.web.advice.security.SecurityProblemSupport;
 
 import java.util.HashMap;
 import java.util.Map;
@@ -34,15 +37,22 @@ import java.util.Map;
  * @date 2022/8/17
  */
 @Slf4j
-@EnableWebSecurity(debug = true)
+@EnableWebSecurity(debug = false)
 @RequiredArgsConstructor
+@Order(99)
+@Import(SecurityProblemSupport.class)
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     private final ObjectMapper objectMapper;
 
+    private final SecurityProblemSupport securityProblemSupport;
+
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .exceptionHandling(exceptionHandling -> exceptionHandling
+                .authenticationEntryPoint(securityProblemSupport)
+                .accessDeniedHandler(securityProblemSupport))
                 .authorizeRequests(req -> req
                         .antMatchers("/authorize/**").permitAll()
                         .antMatchers("/admin/**").hasRole("ADMIN")
@@ -115,8 +125,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     public void configure(WebSecurity web) throws Exception {
-        web.ignoring().antMatchers("/public/**", "/api/public/**")
-                .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
+        web.ignoring()
+                .antMatchers("/public/**", "/api/public/**", "/error/**");
     }
 
     @Override
@@ -124,7 +134,12 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.inMemoryAuthentication()
                 .withUser("user")
                 .password(passwordEncoder().encode("123456"))
-                .roles("USER", "ADMIN");
+                .roles("USER", "ADMIN")
+                .and()
+                .withUser("zhangsan")
+                .password(passwordEncoder().encode("12345678"))
+                .roles("USER", "ADMIN")
+        ;
     }
 
     @Bean

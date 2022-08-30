@@ -10,12 +10,16 @@ import javax.validation.ConstraintValidatorContext;
 import java.util.Arrays;
 
 /**
+ * 密码约束
  * @author myseital
  * @date 2022/8/30
  */
 @RequiredArgsConstructor
 public class PasswordConstraintValidator implements ConstraintValidator<ValidPassword, String> {
 
+    /**
+     * 国际化信息处理
+     */
     private final SpringMessageResolver messageResolver;
 
     @Override
@@ -34,13 +38,13 @@ public class PasswordConstraintValidator implements ConstraintValidator<ValidPas
             new CharacterRule(EnglishCharacterData.Digit, 1),
             // 至少有一个特殊字符
             new CharacterRule(EnglishCharacterData.Special, 1),
-            // 不允许连续 3 个字母，按字母表顺序
+            // 不允许连续 5 个字母，按字母表顺序
             // alphabetical is of the form 'abcde', numerical is '34567', qwery is 'asdfg'
             // the false parameter indicates that wrapped sequences are allowed; e.g. 'xyzabc'
             new IllegalSequenceRule(EnglishSequenceData.Alphabetical, 5, false),
-            // 不允许 3 个连续数字
+            // 不允许 5 个连续数字
             new IllegalSequenceRule(EnglishSequenceData.Numerical, 5, false),
-            // 不允许 QWERTY 键盘上的三个连续相邻的按键所代表的字符
+            // 不允许 QWERTY 键盘上的 5 个连续相邻的按键所代表的字符
             new IllegalSequenceRule(EnglishSequenceData.USQwerty, 5, false),
             // 不允许包含空格
             new WhitespaceRule()));
