@@ -43,4 +43,5 @@ public class LoginSecurityConfig extends WebSecurityConfigurerAdapter {
         web.ignoring()
             .requestMatchers(PathRequest.toStaticResources().atCommonLocations());
     }
+
 }

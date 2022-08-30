@@ -9,7 +9,7 @@ server:
 spring:
   application:
     name: security
-  security:
+#  security:
 #    user:
 #      name: user
 #      password: 123456

@@ -13,12 +13,15 @@ import org.springframework.context.annotation.Import;
 import org.springframework.core.annotation.Order;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
+import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.builders.WebSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
+import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
+import org.springframework.security.config.http.SessionCreationPolicy;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
@@ -50,6 +53,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         http
+                .requestMatchers(req -> req.mvcMatchers("/api/**", "/admin/**", "/authorize/**"))
+                .sessionManagement(sessionManagement -> sessionManagement.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .exceptionHandling(exceptionHandling -> exceptionHandling
                 .authenticationEntryPoint(securityProblemSupport)
                 .accessDeniedHandler(securityProblemSupport))
@@ -59,25 +64,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .antMatchers("/api/**").hasRole("USER")
                         .anyRequest().authenticated())
                     .addFilterAt(restAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-                .formLogin(login -> login
-                        .loginPage("/login")
-//                .failureUrl("/login?error")
-                        .failureHandler(jsonLoginFailureHandler())
-                        .successHandler(jsonLoginSuccessHandler())
-//                .defaultSuccessUrl("/")
-                        .permitAll())
+//                .formLogin(login -> login
+//                        .loginPage("/login")
+////                .failureUrl("/login?error")
+//                        .failureHandler(jsonLoginFailureHandler())
+//                        .successHandler(jsonLoginSuccessHandler())
+////                .defaultSuccessUrl("/")
 //                        .permitAll())
-                .logout(logout -> logout
-                                .logoutUrl("/perform_logout")
-//                .logoutSuccessUrl("/login")
-                                .logoutSuccessHandler(jsonLogoutSuccessHandler())
-                )
+////                        .permitAll())
+//                .logout(logout -> logout
+//                                .logoutUrl("/perform_logout")
+////                .logoutSuccessUrl("/login")
+//                                .logoutSuccessHandler(jsonLogoutSuccessHandler())
+//                )
+                .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(Customizer.withDefaults())
-                .rememberMe(rememberMe -> rememberMe
-                        .key("someSecret")
-                        .tokenValiditySeconds(86400))
-//                .csrf(AbstractHttpConfigurer::disable)
-                .csrf(csrf -> csrf.ignoringAntMatchers("/api/**", "/admin/**", "/authorize/**"))
+//                .rememberMe(rememberMe -> rememberMe
+//                        .key("someSecret")
+//                        .tokenValiditySeconds(86400))
+                .csrf(AbstractHttpConfigurer::disable)
+//                .csrf(csrf -> csrf.ignoringAntMatchers("/api/**", "/admin/**", "/authorize/**"))
         ;
     }
 
@@ -129,11 +135,18 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                 .antMatchers("/public/**", "/api/public/**", "/error/**");
     }
 
+    @Bean
+    @Override
+    public AuthenticationManager authenticationManagerBean() throws Exception {
+        return super.authenticationManagerBean();
+    }
+
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("user")
-                .password(passwordEncoder().encode("123456"))
+                .password("{bcrypt}$2a$10$.lvmn/Ex946hTOCmDYH1qutLl9gDinPRzIfJGh8WD7o33l9.kHmE2")
+//                .password(passwordEncoder().encode("123456"))
                 .roles("USER", "ADMIN")
                 .and()
                 .withUser("zhangsan")
@@ -144,13 +157,13 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Bean
     public PasswordEncoder passwordEncoder() {
-        String defaultEncode = "BCrypt";
+        String defaultEncode = "bcrypt";
         Map<String, PasswordEncoder> encoders = ImmutableMap.of(
                 defaultEncode, new BCryptPasswordEncoder(),
                 "SHA-1", new MessageDigestPasswordEncoder("SHA-1")
         );
 
-       return new DelegatingPasswordEncoder(defaultEncode, encoders);
+        return new DelegatingPasswordEncoder(defaultEncode, encoders);
 //        return new BCryptPasswordEncoder();
     }
 }
