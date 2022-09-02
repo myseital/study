@@ -145,7 +145,7 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.inMemoryAuthentication()
                 .withUser("user")
-                .password("{bcrypt}$2a$10$.lvmn/Ex946hTOCmDYH1qutLl9gDinPRzIfJGh8WD7o33l9.kHmE2")
+                .password(passwordEncoder().encode("123456"))
 //                .password(passwordEncoder().encode("123456"))
                 .roles("USER", "ADMIN")
                 .and()
