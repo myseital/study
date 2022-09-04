@@ -64,25 +64,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
                         .antMatchers("/api/**").hasRole("USER")
                         .anyRequest().authenticated())
                     .addFilterAt(restAuthenticationFilter(), UsernamePasswordAuthenticationFilter.class)
-//                .formLogin(login -> login
-//                        .loginPage("/login")
-////                .failureUrl("/login?error")
-//                        .failureHandler(jsonLoginFailureHandler())
-//                        .successHandler(jsonLoginSuccessHandler())
-////                .defaultSuccessUrl("/")
-//                        .permitAll())
-////                        .permitAll())
-//                .logout(logout -> logout
-//                                .logoutUrl("/perform_logout")
-////                .logoutSuccessUrl("/login")
-//                                .logoutSuccessHandler(jsonLogoutSuccessHandler())
-//                )
                 .formLogin(AbstractHttpConfigurer::disable)
                 .httpBasic(Customizer.withDefaults())
-//                .rememberMe(rememberMe -> rememberMe
-//                        .key("someSecret")
-//                        .tokenValiditySeconds(86400))
                 .csrf(AbstractHttpConfigurer::disable)
+                .httpBasic(Customizer.withDefaults());
 //                .csrf(csrf -> csrf.ignoringAntMatchers("/api/**", "/admin/**", "/authorize/**"))
         ;
     }
@@ -94,17 +79,6 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         filter.setAuthenticationManager(authenticationManager());
         filter.setFilterProcessesUrl("/authorize/login");
         return filter;
-    }
-
-    private LogoutSuccessHandler jsonLogoutSuccessHandler() {
-        return (req, res, auth) -> {
-            if (auth != null && auth.getDetails() != null) {
-                req.getSession().invalidate();
-            }
-            res.setStatus(HttpStatus.OK.value());
-            res.getWriter().println();
-            log.debug("成功退出登录");
-        };
     }
 
     private AuthenticationSuccessHandler jsonLoginSuccessHandler() {
