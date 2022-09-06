@@ -36,7 +36,7 @@ public class XxlJobAutoConfiguration {
 	 * @param discoveryClient 注册发现客户端
 	 * @return
 	 */
-	@Bean
+//	@Bean
 	public XxlJobSpringExecutor xxlJobSpringExecutor(XxlJobProperties xxlJobProperties, Environment environment,
 			DiscoveryClient discoveryClient) {
 		XxlJobSpringExecutor xxlJobSpringExecutor = new XxlJobSpringExecutor();
