@@ -123,8 +123,8 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
         auth.jdbcAuthentication()
 //                .withDefaultSchema()
                 .dataSource(dataSource)
-                .usersByUsernameQuery("select * from users where username = ?")
-                .authoritiesByUsernameQuery("select * from authorities where username = ?")
+//                .usersByUsernameQuery("select * from users where username = ?")
+//                .authoritiesByUsernameQuery("select * from authorities where username = ?")
                 .passwordEncoder(passwordEncoder())
 
 //        auth.inMemoryAuthentication()

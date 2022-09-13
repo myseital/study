@@ -1,0 +1,2 @@
+insert into users(username, password, enabled) values ('user', '{bcrypt}$2a$10$biluar/n0qmDpoCKLvhXR.WeaSP89s66nX244I1dWvdVsnD7IVA5u', 1), ('zhangsan', '{bcrypt}$2a$10$uV49iHBCxJHaLJTpltUgMe2QlWvnruEMOLkHDxMakjlRuvwGdytJC', 1);
+insert into authorities(username, authority) values ('user', 'ROLE_ADMIN'), ('user', 'ROLE_USER'), ('zhangsan', 'ROLE_ADMIN'), ('zhangsan', 'ROLE_USER');
