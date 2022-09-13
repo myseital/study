@@ -121,19 +121,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
         auth.jdbcAuthentication()
-                .withDefaultSchema()
+//                .withDefaultSchema()
                 .dataSource(dataSource)
+                .usersByUsernameQuery("select * from users where username = ?")
+                .authoritiesByUsernameQuery("select * from authorities where username = ?")
                 .passwordEncoder(passwordEncoder())
 
 //        auth.inMemoryAuthentication()
-                .withUser("user")
-                .password(passwordEncoder().encode("123456"))
+//                .withUser("user")
 //                .password(passwordEncoder().encode("123456"))
-                .roles("USER", "ADMIN")
-                .and()
-                .withUser("zhangsan")
-                .password(passwordEncoder().encode("12345678"))
-                .roles("USER", "ADMIN")
+//                .roles("USER", "ADMIN")
+//                .and()
+//                .withUser("zhangsan")
+//                .password(passwordEncoder().encode("12345678"))
+//                .roles("USER", "ADMIN")
         ;
     }
 
