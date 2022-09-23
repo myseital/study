@@ -5,6 +5,7 @@ import com.google.common.collect.ImmutableMap;
 import com.google.common.collect.Maps;
 import com.mao.security.filter.RestAuthenticationFilter;
 import com.mao.security.handler.MyAuthenticationSuccessHandler;
+import com.mao.security.service.userdetails.UserDetailsServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.boot.autoconfigure.security.servlet.PathRequest;
@@ -22,6 +23,8 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.config.annotation.web.configurers.AbstractHttpConfigurer;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.userdetails.UserDetailsPasswordService;
+import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.DelegatingPasswordEncoder;
 import org.springframework.security.crypto.password.MessageDigestPasswordEncoder;
@@ -52,6 +55,10 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     private final SecurityProblemSupport securityProblemSupport;
 
     private final DataSource dataSource;
+
+    private final UserDetailsService userDetailsService;
+
+    private final UserDetailsPasswordService userDetailsPasswordService;
 
     @Override
     protected void configure(HttpSecurity http) throws Exception {
@@ -120,12 +127,20 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
     @Override
     protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.jdbcAuthentication()
-//                .withDefaultSchema()
-                .dataSource(dataSource)
-//                .usersByUsernameQuery("select * from users where username = ?")
-//                .authoritiesByUsernameQuery("select * from authorities where username = ?")
+        auth
+                // 配置 AuthenticationManager 使用 userService
+                .userDetailsService(userDetailsService)
                 .passwordEncoder(passwordEncoder())
+                // 配置密码自动升级服务
+                .userDetailsPasswordManager(userDetailsPasswordService)
+
+
+//        auth.jdbcAuthentication()
+////                .withDefaultSchema()
+//                .dataSource(dataSource)
+////                .usersByUsernameQuery("select * from users where username = ?")
+////                .authoritiesByUsernameQuery("select * from authorities where username = ?")
+//                .passwordEncoder(passwordEncoder())
 
 //        auth.inMemoryAuthentication()
 //                .withUser("user")
