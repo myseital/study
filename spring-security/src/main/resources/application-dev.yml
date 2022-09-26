@@ -39,6 +39,13 @@ spring:
     hibernate:
 #      ddl-auto: create-drop
       ddl-auto: update
+  ldap:
+    base: dc=imooc,dc=com
+    embedded:
+      base-dn: dc=imooc,dc=com
+      ldif: classpath:test-ldap-server.ldif
+      port: 8389
+    urls: ldap://localhost:8389/
   devtools:
     livereload:
       enabled: true
