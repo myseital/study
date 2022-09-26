@@ -19,8 +19,8 @@ import java.security.Principal;
 @RequestMapping("/api")
 public class UserController {
 
-    @GetMapping("/test")
-    public String test() {
+    @GetMapping("/greeting")
+    public String greeting() {
         return "hello world";
     }
 
