@@ -33,8 +33,16 @@ public class JwtUtil {
     public static final Key refreshKey = Keys.secretKeyFor(SignatureAlgorithm.HS512);
     private final AppProperties appProperties;
 
+    public String createAccessToken(UserDetails userDetails) {
+        return createJWTToken(userDetails, appProperties.getJwt().getAccessTokenExpireTime());
+    }
+
     public String createJWTToken(UserDetails userDetails, long timeToExpire) {
         return createJWTToken(userDetails, timeToExpire, key);
+    }
+
+    public String createRefreshToken(UserDetails userDetails) {
+        return createJWTToken(userDetails, appProperties.getJwt().getRefreshTokenExpireTime(), refreshKey);
     }
 
     /**
@@ -47,24 +55,15 @@ public class JwtUtil {
      */
     public String createJWTToken(UserDetails userDetails, long timeToExpire, Key signKey) {
         return Jwts
-            .builder()
-            .setId("imooc")
-            .setSubject(userDetails.getUsername())
-            .claim("authorities",
-                userDetails.getAuthorities().stream()
-                    .map(GrantedAuthority::getAuthority)
-                    .collect(Collectors.toList()))
-            .setIssuedAt(new Date(System.currentTimeMillis()))
-            .setExpiration(new Date(System.currentTimeMillis() + timeToExpire))
-            .signWith(signKey, SignatureAlgorithm.HS512).compact();
-    }
-
-    public String createAccessToken(UserDetails userDetails) {
-        return createJWTToken(userDetails, appProperties.getJwt().getAccessTokenExpireTime());
-    }
-
-    public String createRefreshToken(UserDetails userDetails) {
-        return createJWTToken(userDetails, appProperties.getJwt().getRefreshTokenExpireTime(), refreshKey);
+                .builder()
+                .setId("uaa")
+                .setSubject(userDetails.getUsername())
+                .claim("authorities", userDetails.getAuthorities().stream()
+                        .map(GrantedAuthority::getAuthority)
+                        .collect(Collectors.toList()))
+                .setIssuedAt(new Date(System.currentTimeMillis()))
+                .setExpiration(new Date(System.currentTimeMillis() + timeToExpire))
+                .signWith(signKey, SignatureAlgorithm.HS512).compact();
     }
 
     public boolean validateAccessToken(String jwtToken) {
@@ -86,11 +85,11 @@ public class JwtUtil {
 
     public String buildAccessTokenWithRefreshToken(String jwtToken) {
         return parseClaims(jwtToken, refreshKey)
-            .map(claims -> Jwts.builder()
-                .setClaims(claims)
-                .setExpiration(new Date(System.currentTimeMillis() + appProperties.getJwt().getAccessTokenExpireTime()))
-                .signWith(key, SignatureAlgorithm.HS512).compact())
-            .orElseThrow(() -> new RuntimeException("retrieve access token error"));
+                .map(claims -> Jwts.builder()
+                        .setClaims(claims)
+                        .setExpiration(new Date(System.currentTimeMillis() + appProperties.getJwt().getAccessTokenExpireTime()))
+                        .signWith(key, SignatureAlgorithm.HS512).compact())
+                .orElseThrow(() -> new RuntimeException("retrieve access token error"));
     }
 
     public Optional<Claims> parseClaims(String jwtToken, Key signKey) {

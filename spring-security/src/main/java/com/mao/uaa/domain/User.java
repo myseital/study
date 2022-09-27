@@ -25,7 +25,7 @@ import java.util.Set;
 @ToString
 @EqualsAndHashCode
 @Entity
-@Table(name = "mooc_users")
+@Table(name = "uaa_users")
 public class User implements UserDetails, Serializable {
     private static final long serialVersionUID = 1L;
 
@@ -135,7 +135,7 @@ public class User implements UserDetails, Serializable {
     @ManyToMany
     @Fetch(FetchMode.JOIN)
     @JoinTable(
-            name = "mooc_users_roles",
+            name = "uaa_users_roles",
             joinColumns = {@JoinColumn(name = "user_id", referencedColumnName = "id")},
             inverseJoinColumns = {@JoinColumn(name = "role_id", referencedColumnName = "id")})
     private Set<Role> authorities;

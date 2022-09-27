@@ -1,6 +1,7 @@
 package com.mao.uaa.domain;
 
 import lombok.AllArgsConstructor;
+import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
@@ -13,11 +14,12 @@ import java.io.Serializable;
 /**
  * 角色实体类，实现 GrantedAuthority 接口
  */
+@Builder
 @AllArgsConstructor
 @NoArgsConstructor
 @Data
 @Entity
-@Table(name = "mooc_roles")
+@Table(name = "uaa_roles")
 public class Role implements GrantedAuthority, Serializable {
     private static final long serialVersionUID = 1L;
 

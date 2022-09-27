@@ -40,9 +40,9 @@ spring:
 #      ddl-auto: create-drop
       ddl-auto: update
   ldap:
-    base: dc=imooc,dc=com
+    base: dc=mao,dc=com
     embedded:
-      base-dn: dc=imooc,dc=com
+      base-dn: dc=mao,dc=com
       ldif: classpath:test-ldap-server.ldif
       port: 8389
     urls: ldap://localhost:8389/
