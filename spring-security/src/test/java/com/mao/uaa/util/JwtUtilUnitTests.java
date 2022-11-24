@@ -1,7 +1,7 @@
 package com.mao.uaa.util;
 
 import com.google.common.collect.Sets;
-import com.mao.uaa.config.AppProperties;
+import com.mao.uaa.config.JwtProperties;
 import com.mao.uaa.domain.Role;
 import com.mao.uaa.domain.User;
 import io.jsonwebtoken.Claims;
@@ -11,10 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 
-import java.util.List;
-import java.util.Optional;
 import java.util.Set;
-import java.util.stream.Collectors;
 
 import static com.mao.uaa.util.Constants.ROLE_ADMIN;
 import static com.mao.uaa.util.Constants.ROLE_USER;
@@ -29,12 +26,12 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 public class JwtUtilUnitTests {
 
     private JwtUtil jwtUtil;
-    private AppProperties appProperties;
+    private JwtProperties jwtProperties;
 
     @BeforeEach
     public void setup() {
-        appProperties = new AppProperties();
-        jwtUtil = new JwtUtil(appProperties);
+        jwtProperties = new JwtProperties();
+        jwtUtil = new JwtUtil(jwtProperties);
     }
 
     @Test

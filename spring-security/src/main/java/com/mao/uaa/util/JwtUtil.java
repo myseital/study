@@ -1,6 +1,6 @@
 package com.mao.uaa.util;
 
-import com.mao.uaa.config.AppProperties;
+import com.mao.uaa.config.JwtProperties;
 import io.jsonwebtoken.*;
 import io.jsonwebtoken.security.Keys;
 import io.jsonwebtoken.security.SignatureException;
@@ -31,10 +31,10 @@ public class JwtUtil {
      * 用于签名 Refresh Token
      */
     public static final Key refreshKey = Keys.secretKeyFor(SignatureAlgorithm.HS512);
-    private final AppProperties appProperties;
+    private final JwtProperties jwtProperties;
 
     public String createAccessToken(UserDetails userDetails) {
-        return createJWTToken(userDetails, appProperties.getJwt().getAccessTokenExpireTime());
+        return createJWTToken(userDetails, jwtProperties.getJwt().getAccessTokenExpireTime());
     }
 
     public String createJWTToken(UserDetails userDetails, long timeToExpire) {
@@ -42,7 +42,7 @@ public class JwtUtil {
     }
 
     public String createRefreshToken(UserDetails userDetails) {
-        return createJWTToken(userDetails, appProperties.getJwt().getRefreshTokenExpireTime(), refreshKey);
+        return createJWTToken(userDetails, jwtProperties.getJwt().getRefreshTokenExpireTime(), refreshKey);
     }
 
     /**
@@ -87,7 +87,7 @@ public class JwtUtil {
         return parseClaims(jwtToken, refreshKey)
                 .map(claims -> Jwts.builder()
                         .setClaims(claims)
-                        .setExpiration(new Date(System.currentTimeMillis() + appProperties.getJwt().getAccessTokenExpireTime()))
+                        .setExpiration(new Date(System.currentTimeMillis() + jwtProperties.getJwt().getAccessTokenExpireTime()))
                         .signWith(key, SignatureAlgorithm.HS512).compact())
                 .orElseThrow(() -> new RuntimeException("retrieve access token error"));
     }

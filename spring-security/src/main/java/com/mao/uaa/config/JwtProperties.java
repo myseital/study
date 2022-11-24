@@ -16,7 +16,7 @@ import javax.validation.constraints.Min;
 @Validated
 @Configuration
 @ConfigurationProperties(prefix = "jwt")
-public class AppProperties {
+public class JwtProperties {
 
     @Getter
     @Setter
