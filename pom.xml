@@ -52,7 +52,7 @@
         <mapper-generator.version>1.1.5</mapper-generator.version>
         <pagehelper-spring-boot-starter.version>1.2.13</pagehelper-spring-boot-starter.version>
         <dubbo-spring-boot-starter.version>2.7.15</dubbo-spring-boot-starter.version>
-        <dubbo.version>2.7.18</dubbo.version>
+        <dubbo.version>2.7.21</dubbo.version>
         <maven.compiler.plugin.version>3.7.0</maven.compiler.plugin.version>
         <maven-surefire-plugin.version>2.20.1</maven-surefire-plugin.version>
         <spring-boot-maven-plugin.version>2.3.1.RELEASE</spring-boot-maven-plugin.version>
