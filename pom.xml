@@ -32,6 +32,7 @@
         <module>spring-security</module>
         <module>fengchuang</module>
         <module>xxl-job</module>
+        <module>chatgpt</module>
     </modules>
 
     <name>study</name>

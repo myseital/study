@@ -1,0 +1,2 @@
+org.springframework.boot.autoconfigure.EnableAutoConfiguration =\
+com.mao.chatgpt.autoconfig.ChatgptAutoConfiguration
