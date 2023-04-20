@@ -28,7 +28,6 @@
         <module>kafka</module>
         <module>spring-cloud-alibaba/naocs</module>
         <module>spring-security</module>
-        <module>fengchuang</module>
         <module>chatgpt</module>
     </modules>
 
@@ -62,7 +61,6 @@
         <zkclient.version>0.11</zkclient.version>
         <log4j.version>1.2.16</log4j.version>
         <druid.version>1.2.1</druid.version>
-        <leaf.version>1.0.1-RELEASE</leaf.version>
         <perf4j.version>0.9.16</perf4j.version>
         <commons-io.version>2.7</commons-io.version>
         <reflections.version>0.9.10</reflections.version>
@@ -75,7 +73,6 @@
         <passay.version>1.6.0</passay.version>
         <problem.version>0.26.1</problem.version>
         <hutool.version>5.7.16</hutool.version>
-        <xxl-job.version>2.3.1</xxl-job.version>
         <jjwt.version>0.11.1</jjwt.version>
     </properties>
 
@@ -169,11 +166,6 @@
                 <artifactId>gson</artifactId>
                 <version>${gson.version}</version>
             </dependency>
-<!--            <dependency>-->
-<!--                <groupId>org.projectlombok</groupId>-->
-<!--                <artifactId>lombok</artifactId>-->
-<!--                <version>${lombok.version}</version>-->
-<!--            </dependency>-->
             <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
@@ -183,17 +175,6 @@
                 <groupId>org.apache.commons</groupId>
                 <artifactId>commons-lang3</artifactId>
                 <version>${commons-lang3.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.sankuai.inf.leaf</groupId>
-                <artifactId>leaf-boot-starter</artifactId>
-                <version>${leaf.version}</version>
-                <exclusions>
-                    <exclusion>
-                        <groupId>org.mybatis</groupId>
-                        <artifactId>mybatis</artifactId>
-                    </exclusion>
-                </exclusions>
             </dependency>
             <dependency>
                 <groupId>org.perf4j</groupId>
@@ -264,11 +245,6 @@
                 <groupId>cn.hutool</groupId>
                 <artifactId>hutool-all</artifactId>
                 <version>${hutool.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>com.xuxueli</groupId>
-                <artifactId>xxl-job-core</artifactId>
-                <version>${xxl-job.version}</version>
             </dependency>
             <!-- JWT 依赖开始 -->
             <dependency>
