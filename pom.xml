@@ -17,7 +17,6 @@
         <module>java-core/design</module>
         <module>java-core/concurrency</module>
         <module>java-core/review</module>
-        <module>java-core/common</module>
         <module>netty</module>
         <module>netty/io</module>
         <module>netty/demo</module>
