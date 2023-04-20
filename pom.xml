@@ -11,7 +11,6 @@
         <module>rocketmq</module>
         <module>spring-cloud-netflix</module>
         <module>mybatis</module>
-        <module>dubbo</module>
         <module>java-core</module>
         <module>java-core/algorithm</module>
         <module>java-core/design</module>
