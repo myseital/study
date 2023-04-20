@@ -12,7 +12,6 @@
         <module>spring-cloud-netflix</module>
         <module>mybatis</module>
         <module>dubbo</module>
-<!--        <module>leaf</module>-->
         <module>java-core</module>
         <module>java-core/algorithm</module>
         <module>java-core/design</module>
@@ -31,7 +30,6 @@
         <module>spring-cloud-alibaba/naocs</module>
         <module>spring-security</module>
         <module>fengchuang</module>
-        <module>xxl-job</module>
         <module>chatgpt</module>
     </modules>
 
