@@ -6,7 +6,6 @@
     <version>0.0.1-SNAPSHOT</version>
 
     <modules>
-        <module>spring-boot</module>
         <module>elastic-search</module>
         <module>rocketmq</module>
         <module>spring-cloud-netflix</module>
@@ -21,7 +20,6 @@
         <module>netty/demo</module>
         <module>distributed-transaction</module>
         <module>distributed-transaction/seata</module>
-        <module>spring-boot/distributed-lock</module>
         <module>spring-cloud-alibaba</module>
         <module>spring-cloud-alibaba/sentinel</module>
         <module>kafka</module>
@@ -60,14 +58,11 @@
         <zkclient.version>0.11</zkclient.version>
         <log4j.version>1.2.16</log4j.version>
         <druid.version>1.2.1</druid.version>
-        <perf4j.version>0.9.16</perf4j.version>
         <commons-io.version>2.7</commons-io.version>
         <reflections.version>0.9.10</reflections.version>
         <protobuf-maven-plugin.version>0.5.0</protobuf-maven-plugin.version>
         <os-maven-plugin.version>1.5.0.Final</os-maven-plugin.version>
         <jol.version>0.9</jol.version>
-        <redisson.version>3.13.4</redisson.version>
-        <jetcd.version>0.5.7</jetcd.version>
         <bootstrap.version>4.5.0</bootstrap.version>
         <passay.version>1.6.0</passay.version>
         <problem.version>0.26.1</problem.version>
@@ -176,11 +171,6 @@
                 <version>${commons-lang3.version}</version>
             </dependency>
             <dependency>
-                <groupId>org.perf4j</groupId>
-                <artifactId>perf4j</artifactId>
-                <version>${perf4j.version}</version>
-            </dependency>
-            <dependency>
                 <groupId>commons-io</groupId>
                 <artifactId>commons-io</artifactId>
                 <version>${commons-io.version}</version>
@@ -194,16 +184,6 @@
                 <groupId>org.openjdk.jol</groupId>
                 <artifactId>jol-core</artifactId>
                 <version>${jol.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>org.redisson</groupId>
-                <artifactId>redisson</artifactId>
-                <version>${redisson.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>io.etcd</groupId>
-                <artifactId>jetcd-core</artifactId>
-                <version>${jetcd.version}</version>
             </dependency>
             <dependency>
                 <groupId>com.alibaba</groupId>
@@ -283,32 +263,32 @@
                 <filtering>true</filtering>
             </resource>
         </resources>
-        <extensions>
-            <extension>
-                <groupId>kr.motd.maven</groupId>
-                <artifactId>os-maven-plugin</artifactId>
-                <version>${os-maven-plugin.version}</version>
-            </extension>
-        </extensions>
+<!--        <extensions>-->
+<!--            <extension>-->
+<!--                <groupId>kr.motd.maven</groupId>-->
+<!--                <artifactId>os-maven-plugin</artifactId>-->
+<!--                <version>${os-maven-plugin.version}</version>-->
+<!--            </extension>-->
+<!--        </extensions>-->
         <plugins>
-            <plugin>
-                <groupId>org.xolstice.maven.plugins</groupId>
-                <artifactId>protobuf-maven-plugin</artifactId>
-                <version>${protobuf-maven-plugin.version}</version>
-                <configuration>
-                    <protoSourceRoot>${project.basedir}/src/main/resources/protobuf/</protoSourceRoot>
-                    <protocArtifact>
-                        com.google.protobuf:protoc:3.3.0:exe:${os.detected.classifier}
-                    </protocArtifact>
-                </configuration>
-                <executions>
-                    <execution>
-                        <goals>
-                            <goal>compile</goal>
-                        </goals>
-                    </execution>
-                </executions>
-            </plugin>
+<!--            <plugin>-->
+<!--                <groupId>org.xolstice.maven.plugins</groupId>-->
+<!--                <artifactId>protobuf-maven-plugin</artifactId>-->
+<!--                <version>${protobuf-maven-plugin.version}</version>-->
+<!--                <configuration>-->
+<!--                    <protoSourceRoot>${project.basedir}/src/main/resources/protobuf/</protoSourceRoot>-->
+<!--                    <protocArtifact>-->
+<!--                        com.google.protobuf:protoc:3.3.0:exe:${os.detected.classifier}-->
+<!--                    </protocArtifact>-->
+<!--                </configuration>-->
+<!--                <executions>-->
+<!--                    <execution>-->
+<!--                        <goals>-->
+<!--                            <goal>compile</goal>-->
+<!--                        </goals>-->
+<!--                    </execution>-->
+<!--                </executions>-->
+<!--            </plugin>-->
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>

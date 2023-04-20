@@ -1,7 +1,6 @@
 package com.mao.concurrency.syn;
 
 import org.openjdk.jol.info.ClassLayout;
-import sun.misc.GC;
 
 /**
  * @author myseital

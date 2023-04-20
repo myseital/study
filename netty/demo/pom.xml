@@ -12,7 +12,16 @@
 
     <artifactId>demo</artifactId>
 
+    <properties>
+        <protobuf.version>3.15.0</protobuf.version>
+    </properties>
+
     <dependencies>
+        <dependency>
+            <groupId>com.google.protobuf</groupId>
+            <artifactId>protobuf-java</artifactId>
+            <version>${protobuf.version}</version>
+        </dependency>
         <dependency>
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
@@ -27,34 +36,40 @@
         </dependency>
     </dependencies>
 
-<!--    <build>-->
-<!--        <extensions>-->
-<!--            <extension>-->
-<!--                <groupId>kr.motd.maven</groupId>-->
-<!--                <artifactId>os-maven-plugin</artifactId>-->
-<!--                <version>${os-maven-plugin.version}</version>-->
-<!--            </extension>-->
-<!--        </extensions>-->
-<!--        <plugins>-->
-<!--            <plugin>-->
-<!--                <groupId>org.xolstice.maven.plugins</groupId>-->
-<!--                <artifactId>protobuf-maven-plugin</artifactId>-->
-<!--&lt;!&ndash;                <version>${protobuf-maven-plugin.version}</version>&ndash;&gt;-->
-<!--                <configuration>-->
-<!--                    <protoSourceRoot>${project.basedir}/src/main/resources/protobuf/</protoSourceRoot>-->
-<!--                    <protocArtifact>-->
-<!--                        com.google.protobuf:protoc:3.3.0:exe:${os.detected.classifier}-->
-<!--                    </protocArtifact>-->
-<!--                </configuration>-->
-<!--                <executions>-->
-<!--                    <execution>-->
-<!--                        <goals>-->
-<!--                            <goal>compile</goal>-->
-<!--                        </goals>-->
-<!--                    </execution>-->
-<!--                </executions>-->
-<!--            </plugin>-->
-<!--        </plugins>-->
-<!--    </build>-->
+    <build>
+        <extensions>
+            <extension>
+                <groupId>kr.motd.maven</groupId>
+                <artifactId>os-maven-plugin</artifactId>
+                <version>1.6.0</version>
+            </extension>
+        </extensions>
+        <plugins>
+            <!--protobuf maven插件，用于proto转java文件-->
+            <plugin>
+                <groupId>org.xolstice.maven.plugins</groupId>
+                <artifactId>protobuf-maven-plugin</artifactId>
+                <version>0.6.1</version>
+                <configuration>
+                    <pluginId>java</pluginId>
+                    <!--suppress UnresolvedMavenProperty -->
+                    <protocArtifact>com.google.protobuf:protoc:${protobuf.version}:exe:${os.detected.classifier}
+                    </protocArtifact>
+<!--                    <protoSourceRoot>src/main/proto</protoSourceRoot>-->
+                    <protoSourceRoot>${project.basedir}/src/main/resources/protobuf/</protoSourceRoot>
+                    <outputDirectory>${project.build.sourceDirectory}</outputDirectory>
+                    <clearOutputDirectory>false</clearOutputDirectory>
+                </configuration>
+                <executions>
+                    <execution>
+                        <goals>
+                            <goal>compile-javanano</goal>
+                        </goals>
+                    </execution>
+                </executions>
+            </plugin>
+        </plugins>
+    </build>
+
 
 </project>
